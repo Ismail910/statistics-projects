@@ -27,11 +27,18 @@
           <a class="nav-link" href="<?php url(); ?>">Home </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="<?php url('products/index'); ?>"">Products</a>
+          <a class="nav-link" href="<?php url('products/index'); ?>">Products</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?php url('products/add'); ?>"">Add Product</a>
+          <a class="nav-link" href="<?php url('products/add'); ?>">Add Product</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="<?php url('users/index'); ?>">Users</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php url('users/add'); ?>">Add User</a>
         </li>
         
       </ul>
