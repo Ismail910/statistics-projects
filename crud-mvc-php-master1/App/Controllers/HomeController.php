@@ -13,39 +13,30 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data = ["name"=>"mostafa mahfouz"];
-        $this->view('home',$data);
-    }
-
-
-    // public function userStatisticsByStatus()
-    // {
-       
-    //     $statusStatistics = $this->conn->getStatusStatistics();
-       
-
-        
-    //    return $this->view('home', $statusStatistics );
-    // }
-
-
-    public function userStatisticsByStatus()
-    {
        
         $statusStatistics = $this->conn->getStatusStatistics();
         $passCount = $statusStatistics['pass_count'];
         $notPassCount = $statusStatistics['not_pass_count'];
+        $endDateCount = $statusStatistics['end_Date_Count'];
         $passPercentage = $statusStatistics['pass_percentage'];
         $notPassPercentage = $statusStatistics['not_pass_percentage'];
+        $endDatePercentage = $statusStatistics['end_Date_Percentage'];
 
-        
-       return $this->view('home', [
+       echo 'asd'. $notPassPercentage;
+        $this->view('home', [
             'passCount' => $passCount,
             'notPassCount' => $notPassCount,
+            'endDateCount' => $notPassCount,
             'passPercentage' => $passPercentage,
             'notPassPercentage' => $notPassPercentage,
+            'endDatePercentage' => $endDatePercentage,
         ]);
     }
+
+
+    
+
+
 
 
 }

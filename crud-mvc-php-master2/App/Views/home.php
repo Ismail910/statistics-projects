@@ -2,10 +2,18 @@
 
 <div class="jumbotron text-center mt-5">
   <h1 class="display-4">مرحبا</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <p class="lead">الاحصائيات</p>
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg " href="<?php url('users') ?>" role="button">عرض الاشخاص </a>
+  <p>الاحصائيات الاشخاص المقبولين</p>
+
+
+<p>عدد للذين تخطو تاريخ الانتهاء : <?php echo $passCount; ?></p>
+<p>عدد الذين تخطو لم يتخطو: <?php echo $notPassCount; ?></p>
+<p>عدد الذين تخطو تاريخ الانتهاء: <?php echo $endDateCount; ?></p>
+<p>النسبه المئويه للذين اجتازو :  <?php echo $passPercentage; ?>% اجتاز</p>
+<p>النسبه المئويه للذين لم يجتاوز : <?php echo $notPassPercentage; ?>% لم يجتاز</p>
+<p> النسبه المئويه للذين تخطو تاريخ الانتهاء : <?php echo $endDatePercentage; ?>% انتهاء</p>
+  
 </div>
 
 <?php  include(VIEWS.'inc'.DS.'footer.php'); ?>

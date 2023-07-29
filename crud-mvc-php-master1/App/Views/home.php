@@ -7,10 +7,12 @@
   <p>الاحصائيات الاشخاص المقبولين</p>
 
 
-  <p>Total Pass: <?php echo $passCount; ?></p>
-<p>Total Not Pass: <?php echo $notPassCount; ?></p>
-<p>Pass Percentage: <?php echo $passPercentage; ?>%</p>
-<p>Not Pass Percentage: <?php echo $notPassPercentage; ?>%</p>
+<p>عدد للذين تخطو تاريخ الانتهاء : <?php echo $passCount; ?></p>
+<p>عدد الذين تخطو لم يتخطو: <?php echo $notPassCount; ?></p>
+<p>عدد الذين تخطو تاريخ الانتهاء: <?php echo $endDateCount; ?></p>
+<p>النسبه المئويه للذين اجتازو :  <?php echo $passPercentage; ?>% اجتاز</p>
+<p>النسبه المئويه للذين لم يجتاوز : <?php echo $notPassPercentage; ?>% لم يجتاز</p>
+<p> النسبه المئويه للذين تخطو تاريخ الانتهاء : <?php echo $endDatePercentage; ?>% انتهاء</p>
   
 </div>
 

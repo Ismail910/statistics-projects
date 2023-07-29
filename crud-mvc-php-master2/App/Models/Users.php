@@ -57,6 +57,44 @@ class Users
         return $this->db->update($this->table,$id,$data);
     }
 
+
+    public function getStatusStatistics()
+    {
+        
+        $passQuery = "SELECT COUNT(*) AS pass_count FROM `{$this->table}` WHERE `status` = 'pass'";
+        $passResult = $this->db->rawQuery($passQuery);
+        $passCount = $passResult[0]['pass_count'];
+    
+        // Count the number of 'not pass' statuses
+        $notPassQuery = "SELECT COUNT(*) AS not_pass_count FROM `{$this->table}` WHERE `status` = 'not pass'";
+        $notPassResult = $this->db->rawQuery($notPassQuery);
+        $notPassCount = $notPassResult[0]['not_pass_count'];
+
+       
+    
+        
+        $endDateQuery = "SELECT COUNT(*) AS end_date_count FROM `{$this->table}` WHERE `end_date` < CURDATE()";
+        $endDateResult = $this->db->rawQuery($endDateQuery);
+        $endDateCount = $endDateResult[0]['end_date_count'];
+        
+    
+        
+        $totalUsers = $passCount + $notPassCount;
+        $endDatePercentage = ($totalUsers > 0) ? ($endDateCount / $totalUsers) * 100 : 0;
+        $passPercentage = ($totalUsers > 0) ? ($passCount / $totalUsers) * 100 : 0;
+        $notPassPercentage = 100 - $passPercentage;
+    
+        return [
+            'pass_count' => $passCount,
+            'not_pass_count' => $notPassCount,
+            'end_Date_Count' => $endDateCount,
+            'pass_percentage' => $passPercentage,
+            'not_pass_percentage' => $notPassPercentage,
+            'end_Date_Percentage' => $endDatePercentage,
+        ];
+    }
+    
+
     public function searchUsers($searchQuery)
     {
         $searchQuery = '%' . $searchQuery . '%';
@@ -67,4 +105,10 @@ class Users
        
     }
    
+
+
+
+
+
+
 }
