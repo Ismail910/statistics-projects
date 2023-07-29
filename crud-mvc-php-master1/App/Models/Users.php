@@ -58,4 +58,19 @@ class Users
         $product = $this->db->connect()->where('id', $id);
         return $product->update($this->table,$data);
     }
+
+    public function searchUsers($searchQuery)
+    {
+        $searchQuery = '%' . $searchQuery . '%';
+        $this->db->connect()->where('id', $searchQuery, 'LIKE');
+        $this->db->connect()->orWhere('name', $searchQuery, 'LIKE');
+        $this->db->connect()->orWhere('position', $searchQuery, 'LIKE');
+        $this->db->connect()->orWhere('department', $searchQuery, 'LIKE');
+        $this->db->connect()->orWhere('phone_number', $searchQuery, 'LIKE');
+        $this->db->connect()->orWhere('start_date', $searchQuery, 'LIKE');
+        $this->db->connect()->orWhere('end_date', $searchQuery, 'LIKE');
+        $this->db->connect()->orWhere('status', $searchQuery, 'LIKE');
+        return $this->db->get($this->table);
+    }
+   
 }
