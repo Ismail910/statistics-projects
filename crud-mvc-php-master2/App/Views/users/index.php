@@ -1,5 +1,14 @@
 <?php  include(VIEWS.'inc'.DS.'header.php'); ?>
 
+
+<!-- Search form -->
+<form action="<?php  url('users/search'); ?>" method="POST">
+    <div class="form-group">
+        <input type="text" class="form-control" name="query" placeholder="Search by name, position, or department">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
 <h1 class="text-center  my-5 py-3">View All Users </h1>
 
 <div class="container">

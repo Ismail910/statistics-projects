@@ -12,11 +12,12 @@ class Users
     {
         $this->db = new DB();
     }
+  
 
     public function getAllUsers()
     {
         
-        return $this->db->connect()->get($this->table);
+        return $this->db->select($this->table);
     }
 
 
@@ -26,7 +27,7 @@ class Users
      */
     public function insertUsers($data)
     {
-        return $this->db->connect()->insert($this->table,$data);
+        return $this->db->insert($this->table,$data);
     }
 
 
@@ -36,8 +37,7 @@ class Users
      */
     public function deleteUser($id)
     {
-        $delete = $this->db->connect()->where('id',$id);
-        return $delete->delete($this->table);
+        return $this->db->delete($this->table,$id);
     }
 
 
@@ -49,13 +49,22 @@ class Users
 
     public function getUser($id)
     {
-        $product = $this->db->connect()->where('id', $id);
-        return $product->get($this->table);
+        return $this->db->selectById($this->table,$id);
     }
 
     public function updateUser($id,$data)
     {
-        $product = $this->db->connect()->where('id', $id);
-        return $product->update($this->table,$data);
+        return $this->db->update($this->table,$id,$data);
     }
+
+    public function searchUsers($searchQuery)
+    {
+        $searchQuery = '%' . $searchQuery . '%';
+
+        $query = "SELECT * FROM `{$this->table}` WHERE `name` LIKE '{$searchQuery}' OR `position` LIKE '{$searchQuery}' OR `department` LIKE '{$searchQuery}'OR `phone_number` LIKE '{$searchQuery}'OR `start_date` LIKE '{$searchQuery}'OR `end_date` LIKE '{$searchQuery}'OR `status` LIKE '{$searchQuery}'";
+        
+        return $this->db->rawQuery($query);
+       
+    }
+   
 }
