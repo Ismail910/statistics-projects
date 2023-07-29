@@ -1,6 +1,6 @@
 <?php include(VIEWS . 'inc' . DS . 'header.php'); ?>
 
-<h1 class="text-center  mt-5 mb-2 py-3">Add New User </h1>
+<h1 class="text-center  mt-5 mb-2 py-3"> اضافه  بيانات شخص جديد </h1>
 
 <div class="container">
     <div class="row">
@@ -21,42 +21,42 @@
 
             <form class="p-5 border mb-5" method="POST" action="<?php url('users/store'); ?>">
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">الاسم</label>
                     <input type="text" required name="name" class="form-control" id="name">
                 </div>
 
                 <div class="form-group">
-                    <label for="position">Position</label>
+                    <label for="position">الرتبه</label>
                     <input type="text" required name="position" class="form-control" id="position">
                 </div>
                 <div class="form-group">
-                    <label for="department">Department</label>
+                    <label for="department">الجناح</label>
                     <input type="text" required class="form-control" name="department" id="department">
                 </div>
 
 
 
                 <div class="form-group">
-                    <label for="phone_number">Phone number</label>
+                    <label for="phone_number">رقم الهاتف< </label>
                     <input type="text" required class="form-control" name="phone_number" id="phone_number">
                 </div>
 
                 <div class="form-group">
-                    <label for="start_date">Start Date</label>
+                    <label for="start_date">تاريخ البدء  </label>
                     <input type="date" required class="form-control" name="start_date" id="start_date">
                 </div>
                 <div class="form-group">
-                    <label for="end_date">End Date</label>
+                    <label for="end_date">تاريخ الانتهاء  </label>
                     <input type="date" required class="form-control" name="end_date" id="end_date">
                 </div>
                 <div class="form-group">
-                    <label for="status">Status</label>
+                    <label for="status">الحاله</label>
                     <select name="status" required class="form-control" id="status">
-                        <option value="pass">Pass</option>
-                        <option value="not pass">Not Pass</option>
+                        <option value="pass">تم</option>
+                        <option value="not pass">لم يتم< </option>
                     </select>
                 </div>
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" class="btn btn-primary">حفظ</button>
             </form>
 
         </div>

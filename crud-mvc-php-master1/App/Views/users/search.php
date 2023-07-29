@@ -1,6 +1,6 @@
 <?php include(VIEWS . 'inc' . DS . 'header.php'); ?>
 
-<h1 class="text-center  my-5 py-3">View All Users </h1>
+<h1 class="text-center  my-5 py-3">نتائج البحث </h1>
 
 <div class="container">
     <div class="row">
@@ -21,15 +21,15 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Position</th>
-                            <th scope="col">Department</th>
-                            <th scope="col">Phone Number</th>
-                            <th scope="col">Start Date</th>
-                            <th scope="col">End Date</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Edit</th>
-                            <th scope="col">Delete</th>
+                            <th scope="col">الاسم</th>
+                            <th scope="col">الرتبه او الوظيفه </th>
+                            <th scope="col">الجناج او القسم</th>
+                            <th scope="col">رقم التلفون</th>
+                            <th scope="col"> تاريخ البدء</th>
+                            <th scope="col">تاريخ الانتهاء</th>
+                            <th scope="col">الحاله</th>
+                            <th scope="col">تعديل</th>
+                            <th scope="col">حزف</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,17 +63,17 @@
                                     <?php echo $row['status']; ?>
                                 </td>
                                 <td>
-                                    <a href="<?php url('/users/edit/' . $row['id']) ?>" class="btn btn-info">Edit</a>
+                                    <a href="<?php url('/users/edit/' . $row['id']) ?>" class="btn btn-info">تعديل</a>
                                 </td>
                                 <td>
-                                    <a href="<?php url('/users/delete/' . $row['id']) ?>" class="btn btn-danger">Delete</a>
+                                    <a href="<?php url('/users/delete/' . $row['id']) ?>" class="btn btn-danger">حزف</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             <?php else: ?>
-                <p>No results found.</p>
+                <p>نتيجه البحث فارغه.</p>
             <?php endif; ?>
 
         </div>

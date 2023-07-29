@@ -6,10 +6,10 @@
     <div class="form-group">
         <input type="text" class="form-control" name="query" placeholder="Search by name, position, or department">
     </div>
-    <button type="submit" class="btn btn-primary">Search</button>
+    <button type="submit" class="btn btn-primary">بحث</button>
 </form>
 
-<h1 class="text-center  my-5 py-3">View All Users </h1>
+<h1 class="text-center  my-5 py-3">عرض كل الاشخاص  </h1>
 
 <div class="container">
     <div class="row">
@@ -24,15 +24,15 @@
                 <thead class="thead-dark">
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Department</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">Start Date</th>
-                    <th scope="col">End Date</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
+                            <th scope="col">الاسم</th>
+                            <th scope="col">الرتبه او الوظيفه </th>
+                            <th scope="col">الجناج او القسم</th>
+                            <th scope="col">رقم التلفون</th>
+                            <th scope="col"> تاريخ البدء</th>
+                            <th scope="col">تاريخ الانتهاء</th>
+                            <th scope="col"> الحاله</th>
+                            <th scope="col">تعديل</th>
+                            <th scope="col">حزف</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,10 +49,10 @@
                             <td><?php echo $row['end_date']; ?></td>
                             <td><?php echo $row['status']; ?></td>
                             <td>
-                                <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info" >Edit</a>
+                                <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info" >نعديل</a>
                             </td>
                             <td>
-                                <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger" >Delete</a>
+                                <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger" >حزف</a>
                             </td>
                         </tr>
                     <?php  endforeach; ?>
