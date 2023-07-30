@@ -93,10 +93,8 @@
 </div>
 
 
-<!-- Add a button or any element to trigger the toggle action -->
 <button id="toggleDataButton">عرض البيانات الخاصه بالاحصائيات </button>
 
-<!-- Wrap the divs that you want to toggle with a parent div -->
 <div id="dataContainer">
   <div class="col-12 col-md-4 mb-2 mt-3" id="passDiv">
     <p>عدد للذين تم :
@@ -142,7 +140,7 @@
     </div>
   </div>
   <div class="col-12 col-md-4 mb-2 mt-3" id="notPassDiv">
-    <p>عدد الذين تخطو لم يتم:
+    <p>عدد الذين  لم يتم:
       <?php echo $notPassCount; ?>
     </p>
    
