@@ -1,7 +1,7 @@
 <?php 
 
 
-define("BURL","http://mvc1.local:8080/");
+define("BURL","http://mvc2.local:8080/");
 
 
 

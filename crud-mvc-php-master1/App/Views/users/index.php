@@ -36,11 +36,16 @@
                     </tr>
                 </thead>
                 <tbody>
-
-                    <?php $i=1; ?>
-                    <?php foreach($users as $row):  ?>
-                        <tr>
-                            <td> <?php echo $i; $i++; ?></td>
+                <?php $i=1; ?>
+                  <?php foreach($users as $row): ?>
+                    <?php
+                        // Calculate the difference in days between the end date and the current date
+                        $endDate = strtotime($row['end_date']);
+                        $currentDate = time();
+                        $difference = ($endDate - $currentDate) / (60 * 60 * 24); // Convert seconds to days
+                    ?>
+                        <tr <?php if ($difference <= 7 && $difference >= 0): ?> style="background-color: red;" <?php elseif ($difference <= 14 && $difference >= 0): ?> style="background-color: yellow;" <?php endif; ?>>
+                            <td><?php echo $i; $i++; ?></td>
                             <td><?php echo $row['name']; ?></td>
                             <td><?php echo $row['position']; ?></td>
                             <td class="text-center"><?php echo $row['department']; ?></td>
@@ -49,17 +54,15 @@
                             <td><?php echo $row['end_date']; ?></td>
                             <td><?php echo $row['status']; ?></td>
                             <td>
-                                <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info" >نعديل</a>
+                                <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info">نعديل</a>
                             </td>
                             <td>
-                                <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger" >حزف</a>
+                                <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger">حزف</a>
                             </td>
                         </tr>
-                    <?php  endforeach; ?>
+                        <?php endforeach; ?>
                 </tbody>
             </table>
-
-
         </div>
     </div>
 </div>
