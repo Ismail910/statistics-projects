@@ -25,7 +25,7 @@
                     <tr>
                     <th scope="col">#</th>
                             <th scope="col">الاسم</th>
-                            <th scope="col"> رقم الهويه او رقم الاقامه<</th>
+                            <th scope="col"> رقم الهويه او رقم الاقامه</th>
                             <th scope="col">الجنسيه</th>
                             <th scope="col">اسم الشركه او المؤسسه<</th>
                             <th scope="col"> تاريخ البدء</th>
@@ -35,7 +35,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php $i=1; ?>
                     <?php foreach($users as $row): ?>
                         <tr>

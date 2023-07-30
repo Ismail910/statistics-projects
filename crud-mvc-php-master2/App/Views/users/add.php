@@ -39,7 +39,7 @@
 
 
                 <div class="form-group">
-                    <label for="id_number"> رقم الهويه او رقم الاقامه< </label>
+                    <label for="id_number"> رقم الهويه او رقم الاقامه </label>
                     <input type="text" required class="form-control" name="id_number" id="id_number">
                 </div>
 
