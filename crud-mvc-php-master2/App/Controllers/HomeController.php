@@ -15,11 +15,18 @@ class HomeController extends Controller
     {
        
         $statusStatistics = $this->conn->getStatusStatistics();
+        $startDateCount = $statusStatistics['startDateCount'];
         $endDateCount = $statusStatistics['endDateCount'];
         $endDatePercentage = $statusStatistics['endDatePercentage'];
+        $allUsersStartDateResult = $statusStatistics['allUsersStartDateResult'];
+        $allUsersEndDateResult = $statusStatistics['allUsersEndDateResult'];
+
         $this->view('home', [
+            'startDateCount' => $startDateCount,
             'endDateCount' => $endDateCount,
             'endDatePercentage' => $endDatePercentage,
+            'allUsersStartDateResult' => $allUsersStartDateResult,
+            'allUsersEndDateResult' => $allUsersEndDateResult,
         ]);
     }
 

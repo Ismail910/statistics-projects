@@ -61,18 +61,31 @@ class Users
     public function getStatusStatistics()
     {
         $totalUsersQuery = "SELECT COUNT(*) AS total_users FROM `{$this->table}`";
+
         $totalUsersResult = $this->db->rawQuery($totalUsersQuery);
         $totalUsers = $totalUsersResult[0]['total_users'];
     
         $endDateQuery = "SELECT COUNT(*) AS endDateCount FROM `{$this->table}` WHERE `end_date` < CURDATE()";
         $endDateResult = $this->db->rawQuery($endDateQuery);
         $endDateCount = $endDateResult[0]['endDateCount'];
+
+        $startDateCount = $totalUsers - $endDateCount;
     
         $endDatePercentage = ($totalUsers > 0) ? ($endDateCount / $totalUsers) * 100 : 0;
+
+        $allUsersStartDateQuery = "SELECT * FROM `{$this->table}` WHERE `start_date` < CURDATE()";
+        $allUsersStartDateResult = $this->db->rawQuery($allUsersStartDateQuery);
+
+        $allUsersEndDateQuery = "SELECT * FROM `{$this->table}` WHERE `end_date` > CURDATE()";
+        $allUsersEndDateResult = $this->db->rawQuery($allUsersEndDateQuery);
+
         
         return [
+            'startDateCount' => $startDateCount,
             'endDateCount' => $endDateCount,
             'endDatePercentage' => $endDatePercentage,
+            'allUsersStartDateResult' => $allUsersStartDateResult,
+            'allUsersEndDateResult' => $allUsersEndDateResult,
         ];
     }
     
