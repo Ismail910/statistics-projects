@@ -185,10 +185,13 @@ class DB
     function rawQuery($query)
     {
         $select_stmt = $this->conn->prepare($query);
+       
         if($select_stmt->execute()){
+           
         $data = $select_stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
         }
+        echo 'select';
         return false;
     }
 

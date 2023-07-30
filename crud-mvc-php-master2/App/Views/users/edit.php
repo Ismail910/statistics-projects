@@ -36,8 +36,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="id_number">رقم الهويه او الاثامه </label>
-                        <input type="text" required class="form-control" value="<?php echo $row['id_number']; ?>" name="id_number" id="id_number">
+                        <label for="ssn">رقم الهويه او الاثامه </label>
+                        <input type="text" required class="form-control" value="<?php echo $row['ssn']; ?>" name="ssn" id="ssn">
                     </div>
 
                     <div class="form-group">

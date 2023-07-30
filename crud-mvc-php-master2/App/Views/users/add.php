@@ -39,8 +39,8 @@
 
 
                 <div class="form-group">
-                    <label for="id_number"> رقم الهويه او رقم الاقامه </label>
-                    <input type="text" required class="form-control" name="id_number" id="id_number">
+                    <label for="ssn"> رقم الهويه او رقم الاقامه </label>
+                    <input type="text" required class="form-control" name="ssn" id="ssn">
                 </div>
 
                 <div class="form-group">

@@ -44,14 +44,15 @@
                                 <td>
                                     <?php echo $row['name']; ?>
                                 </td>
-                                <td>
-                                    <?php echo $row['position']; ?>
-                                </td>
+                              
                                 <td class="text-center">
-                                    <?php echo $row['department']; ?>
+                                    <?php echo $row['ssn']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['phone_number']; ?>
+                                    <?php echo $row['nationality']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['company']; ?>
                                 </td>
                                 <td>
                                     <?php echo $row['start_date']; ?>
@@ -59,9 +60,7 @@
                                 <td>
                                     <?php echo $row['end_date']; ?>
                                 </td>
-                                <td>
-                                    <?php echo $row['status']; ?>
-                                </td>
+                               
                                 <td>
                                     <a href="<?php url('/users/edit/' . $row['id']) ?>" class="btn btn-info">تعديل</a>
                                 </td>

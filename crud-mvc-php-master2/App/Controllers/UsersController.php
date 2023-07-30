@@ -28,7 +28,7 @@ class UsersController extends Controller
     {
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
-            $id_number = $_POST['id_number'];
+            $ssn = $_POST['ssn'];
             $nationality = $_POST['nationality'];
            
             $company = $_POST['company'];
@@ -38,7 +38,7 @@ class UsersController extends Controller
             $this->conn = new Users();
             $dataInsert = array(
                 "name" => $name,
-                "id_number" => $id_number,
+                "ssn" => $ssn,
                 "nationality" => $nationality,
                
                 "company" => $company,
@@ -77,7 +77,7 @@ class UsersController extends Controller
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
             $nationality = $_POST['nationality'];
-            $id_number = $_POST['id_number'];
+            $ssn = $_POST['ssn'];
             $company = $_POST['company'];
             $start_date = $_POST['start_date'];
             $end_date = $_POST['end_date'];
@@ -87,7 +87,7 @@ class UsersController extends Controller
             $dataInsert = array(
                 "name" => $name,
                 "nationality" => $nationality,
-                "id_number" => $id_number,
+                "ssn" => $ssn,
                 "company" => $company,
                 "start_date" => $start_date,
                 "end_date" => $end_date,

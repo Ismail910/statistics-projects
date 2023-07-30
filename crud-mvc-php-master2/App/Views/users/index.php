@@ -40,7 +40,7 @@
                         <tr>
                             <td> <?php echo $i; $i++; ?></td>
                             <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['id_number']; ?></td>
+                            <td><?php echo $row['ssn']; ?></td>
                             <td><?php echo $row['nationality']; ?></td>
                             <td class="text-center"><?php echo $row['company']; ?></td>
                            
