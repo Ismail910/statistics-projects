@@ -1,66 +1,81 @@
-<?php  include(VIEWS.'inc'.DS.'header.php'); ?>
+<?php include(VIEWS.'inc'.DS.'header.php'); ?>
 
+<style>
+    /* Custom styles for search input */
+    .search-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20vh; /* Adjust as needed */
+    }
 
-<!-- Search form -->
-<form action="<?php  url('users/search'); ?>" method="POST">
-    <div class="form-group">
-        <input type="text" class="form-control" name="query" placeholder="Search by name, position, or department">
-    </div>
-    <button type="submit" class="btn btn-primary">بحث</button>
-</form>
+    .search-form {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        padding: 10px;
+    }
 
-<h1 class="text-center  my-5 py-3">عرض كل الاشخاص  </h1>
+    .search-form input {
+        border: none;
+        padding: 5px;
+        font-size: 12px;
+    }
 
+    .search-form button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+</style>
 <div class="container">
-    <div class="row">
-        <div class="col-10 mx-auto p-4 border mb-5">
-                <?php if(isset($success)): ?>
-                    <h3 class="alert alert-success text-center"><?php  echo $success; ?></h3>
-                <?php endif; ?>
-                <?php if(isset($error)): ?>
-                    <h3 class="alert alert-danger text-center"><?php  echo $error; ?></h3>
-                <?php endif; ?>
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                    <th scope="col">#</th>
-                            <th scope="col">الاسم</th>
-                            <th scope="col">الرتبه او الوظيفه </th>
-                            <th scope="col">الجناج او القسم</th>
-                            <th scope="col">رقم التلفون</th>
-                            <th scope="col"> تاريخ البدء</th>
-                            <th scope="col">تاريخ الانتهاء</th>
-                            <th scope="col"> الحاله</th>
-                            <th scope="col">تعديل</th>
-                            <th scope="col">حزف</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <?php $i=1; ?>
-                    <?php foreach($users as $row):  ?>
-                        <tr>
-                            <td> <?php echo $i; $i++; ?></td>
-                            <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['position']; ?></td>
-                            <td class="text-center"><?php echo $row['department']; ?></td>
-                            <td><?php echo $row['phone_number']; ?></td>
-                            <td><?php echo $row['start_date']; ?></td>
-                            <td><?php echo $row['end_date']; ?></td>
-                            <td><?php echo $row['status']; ?></td>
-                            <td>
-                                <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info" >نعديل</a>
-                            </td>
-                            <td>
-                                <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger" >حزف</a>
-                            </td>
-                        </tr>
-                    <?php  endforeach; ?>
-                </tbody>
-            </table>
-
-
+<div class="row">
+<div class="search-container col-12">
+    <form action="<?php url('users/search'); ?>" method="POST" class="search-form">
+        <input type="text" name="query" placeholder="ابحث ....">
+        <button type="submit"><img src="<?php echo BURL.'assets/images/search.png'; ?>" width="30px" height="30px" alt="Search Icon"></button>
+    </form>
+</div>
+<div class="col-12">
+  <h1 class="text-center mt-2">عرض كل الاشخاص</h1>
+        <div class="col-12">
+            <?php if(isset($success)): ?>
+                <h3 class="alert alert-success text-center"><?php echo $success; ?></h3>
+            <?php endif; ?>
+            <?php if(isset($error)): ?>
+                <h3 class="alert alert-danger text-center"><?php echo $error; ?></h3>
+            <?php endif; ?>
+            <div class="row">
+                <?php foreach($users as $row): ?>
+                    <?php
+                        // Calculate the difference in days between the end date and the current date
+                        $endDate = strtotime($row['end_date']);
+                        $currentDate = time();
+                        $difference = ($endDate - $currentDate) / (60 * 60 * 24); // Convert seconds to days
+                    ?>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                                <p class="card-text">الرتبه او الوظيفه: <?php echo $row['position']; ?></p>
+                                <p class="card-text">الجناج او القسم: <?php echo $row['department']; ?></p>
+                                <p class="card-text">رقم التلفون: <?php echo $row['phone_number']; ?></p>
+                                <p class="card-text">تاريخ البدء: <?php echo $row['start_date']; ?></p>
+                                <p class="card-text" <?php if ($difference <= 7 && $difference >= 0): ?> style="background-color: red;" <?php elseif ($difference <= 14 && $difference >= 0): ?> style="background-color: yellow;" <?php endif; ?>>
+                                    تاريخ الانتهاء: <?php echo $row['end_date']; ?>
+                                </p>
+                                <p class="card-text">الحاله: <?php echo $row['status']; ?></p>
+                                <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info">تعديل</a>
+                                <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger">حذف</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>     
+           </div>
         </div>
     </div>
 </div>
-<?php  include(VIEWS.'inc'.DS.'footer.php'); ?>
+
+<?php include(VIEWS.'inc'.DS.'footer.php'); ?>

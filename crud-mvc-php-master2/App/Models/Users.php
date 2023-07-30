@@ -80,15 +80,16 @@ class Users
     public function searchUsers($searchQuery)
     {
 
+
       
         $searchQuery = '%' . $searchQuery . '%';
     
         $query = "SELECT * FROM `{$this->table}` WHERE `name` LIKE '{$searchQuery}' OR `nationality` LIKE '{$searchQuery}' OR `company` LIKE '{$searchQuery}' OR `id_number` LIKE '{$searchQuery}' OR `start_date` LIKE '{$searchQuery}' OR `end_date` LIKE '{$searchQuery}'";
 
-       
         return $this->db->rawQuery($query);
     }
     
+
 
 
 

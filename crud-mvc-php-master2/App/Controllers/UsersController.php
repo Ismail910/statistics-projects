@@ -130,17 +130,20 @@ class UsersController extends Controller
     public function search()
     {
 
+
        if ($_POST['query']==""){
             $data['users'] = $this->conn->getAllUsers();
             return $this->view('users/index',$data);
         }else{
+
             $searchQuery = $_POST['query'];
             $usersModel = new Users();
             $data['searchResults'] = $usersModel->searchUsers($searchQuery);
-            echo 'asdf';
-            // return $this->view('users/search', $data);
+            
+            return $this->view('users/search', $data);
         }
     }
 
+    
 
 }
