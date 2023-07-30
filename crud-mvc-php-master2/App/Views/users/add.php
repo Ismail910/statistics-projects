@@ -20,25 +20,27 @@
 
 
             <form class="p-5 border mb-5" method="POST" action="<?php url('users/store'); ?>">
+
                 <div class="form-group">
                     <label for="name">الاسم</label>
                     <input type="text" required name="name" class="form-control" id="name">
                 </div>
 
                 <div class="form-group">
-                    <label for="position">الرتبه</label>
-                    <input type="text" required name="position" class="form-control" id="position">
-                </div>
-                <div class="form-group">
-                    <label for="department">الجناح</label>
-                    <input type="text" required class="form-control" name="department" id="department">
+                    <label for="nationality">الجنسيه</label>
+                    <input type="text" required name="nationality" class="form-control" id="nationality">
                 </div>
 
+                <div class="form-group">
+                    <label for="company">اسم الشركه او المؤسسه</label>
+                    <input type="text" required class="form-control" name="company" id="company">
+                </div>
+
 
 
                 <div class="form-group">
-                    <label for="phone_number">رقم الهاتف< </label>
-                    <input type="text" required class="form-control" name="phone_number" id="phone_number">
+                    <label for="id_number"> رقم الهويه او رقم الاقامه< </label>
+                    <input type="text" required class="form-control" name="id_number" id="id_number">
                 </div>
 
                 <div class="form-group">
@@ -49,13 +51,7 @@
                     <label for="end_date">تاريخ الانتهاء  </label>
                     <input type="date" required class="form-control" name="end_date" id="end_date">
                 </div>
-                <div class="form-group">
-                    <label for="status">الحاله</label>
-                    <select name="status" required class="form-control" id="status">
-                        <option value="pass">تم</option>
-                        <option value="not pass">لم يتم< </option>
-                    </select>
-                </div>
+               
                 <button type="submit" name="submit" class="btn btn-primary">حفظ</button>
             </form>
 

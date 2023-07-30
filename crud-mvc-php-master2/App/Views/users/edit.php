@@ -26,18 +26,18 @@
                    
 
                     <div class="form-group">
-                        <label for="position">الرتبه</label>
-                        <input type="text" required class="form-control" value="<?php echo $row['position']; ?>" name="position" id="position">
+                        <label for="nationality">الجنسيه </label>
+                        <input type="text" required class="form-control" value="<?php echo $row['nationality']; ?>" name="nationality" id="nationality">
                     </div>
 
                     <div class="form-group">
-                        <label for="department">الجناح</label>
-                        <input type="text" required class="form-control" value="<?php echo $row['department']; ?>" name="department" id="department">
+                        <label for="company">اسم الشركه او المؤسسه </label>
+                        <input type="text" required class="form-control" value="<?php echo $row['company']; ?>" name="company" id="company">
                     </div>
 
                     <div class="form-group">
-                        <label for="phone_number">رقم الهاتف</label>
-                        <input type="text" required class="form-control" value="<?php echo $row['phone_number']; ?>" name="phone_number" id="phone_number">
+                        <label for="id_number">رقم الهويه او الاثامه </label>
+                        <input type="text" required class="form-control" value="<?php echo $row['id_number']; ?>" name="id_number" id="id_number">
                     </div>
 
                     <div class="form-group">
@@ -49,14 +49,6 @@
                     <div class="form-group">
                         <label for="end_date">تاريخ الانتهاء </label>
                         <input type="date" required class="form-control" value="<?php echo $row['end_date']; ?>" name="end_date" id="end_date">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="status">الحاله</label>
-                        <select name="status" required class="form-control" id="status" value="<?php echo $row['status']; ?>" >
-                            <option value="pass">تم</option>
-                            <option value="not pass">لم يتم</option>
-                        </select>
                     </div>
 
                     <button type="submit" name="submit" class="btn btn-primary">حفظ</button>

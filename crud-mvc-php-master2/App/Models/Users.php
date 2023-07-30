@@ -65,7 +65,7 @@ class Users
         $passResult = $this->db->rawQuery($passQuery);
         $passCount = $passResult[0]['pass_count'];
     
-        // Count the number of 'not pass' statuses
+       
         $notPassQuery = "SELECT COUNT(*) AS not_pass_count FROM `{$this->table}` WHERE `status` = 'not pass'";
         $notPassResult = $this->db->rawQuery($notPassQuery);
         $notPassCount = $notPassResult[0]['not_pass_count'];
@@ -99,7 +99,7 @@ class Users
     {
         $searchQuery = '%' . $searchQuery . '%';
 
-        $query = "SELECT * FROM `{$this->table}` WHERE `name` LIKE '{$searchQuery}' OR `position` LIKE '{$searchQuery}' OR `department` LIKE '{$searchQuery}'OR `phone_number` LIKE '{$searchQuery}'OR `start_date` LIKE '{$searchQuery}'OR `end_date` LIKE '{$searchQuery}'OR `status` LIKE '{$searchQuery}'";
+        $query = "SELECT * FROM `{$this->table}` WHERE `name` LIKE '{$searchQuery}' OR `nationality` LIKE '{$searchQuery}' OR `company` LIKE '{$searchQuery}'OR `id_number` LIKE '{$searchQuery}'OR `start_date` LIKE '{$searchQuery}'OR `end_date` LIKE '{$searchQuery}";
         
         return $this->db->rawQuery($query);
        

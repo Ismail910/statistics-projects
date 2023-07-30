@@ -25,12 +25,11 @@
                     <tr>
                     <th scope="col">#</th>
                             <th scope="col">الاسم</th>
-                            <th scope="col">الرتبه او الوظيفه </th>
-                            <th scope="col">الجناج او القسم</th>
-                            <th scope="col">رقم التلفون</th>
+                            <th scope="col"> رقم الهويه او رقم الاقامه<</th>
+                            <th scope="col">الجنسيه</th>
+                            <th scope="col">اسم الشركه او المؤسسه<</th>
                             <th scope="col"> تاريخ البدء</th>
                             <th scope="col">تاريخ الانتهاء</th>
-                            <th scope="col"> الحاله</th>
                             <th scope="col">تعديل</th>
                             <th scope="col">حزف</th>
                     </tr>
@@ -38,16 +37,17 @@
                 <tbody>
 
                     <?php $i=1; ?>
-                    <?php foreach($users as $row):  ?>
+                    <?php foreach($users as $row): ?>
                         <tr>
                             <td> <?php echo $i; $i++; ?></td>
                             <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['position']; ?></td>
-                            <td class="text-center"><?php echo $row['department']; ?></td>
-                            <td><?php echo $row['phone_number']; ?></td>
+                            <td><?php echo $row['id_number']; ?></td>
+                            <td><?php echo $row['nationality']; ?></td>
+                            <td class="text-center"><?php echo $row['company']; ?></td>
+                           
                             <td><?php echo $row['start_date']; ?></td>
                             <td><?php echo $row['end_date']; ?></td>
-                            <td><?php echo $row['status']; ?></td>
+                           
                             <td>
                                 <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info" >نعديل</a>
                             </td>
