@@ -16,6 +16,15 @@
                 </h3>
             <?php endif; ?>
 
+            <div class="row mb-3">
+        <div class="col-12">
+            <h3>إحصائيات البحث:</h3>
+            <p>عدد النتائج: <?php echo count($searchResults); ?></p>
+           
+            <p>نسبة عدد الاشخاص من دوله  <?php echo $row['nationality']; ?> بالنسبه لباقي الدول: <?php echo $statisticsResults['country_percentage']; ?></p>
+           
+        </div>
+    </div>
             <?php if (isset($searchResults) && count($searchResults) > 0): ?>
                 <table class="table">
                     <thead class="thead-dark">
@@ -23,13 +32,11 @@
                             <th scope="col">#</th>
                             <th scope="col">الاسم</th>
                             <th scope="col">رقم الهويه</th>
-                            <th scope="col">الجناج او القسم</th>
-                            <th scope="col">رقم التلفون</th>
+                            <th scope="col"> الجنسيه </th>
+                            <th scope="col"> الشركه </th>
                             <th scope="col"> تاريخ البدء</th>
                             <th scope="col">تاريخ الانتهاء</th>
-                            <th scope="col">الحاله</th>
-                            <th scope="col">تعديل</th>
-                            <th scope="col">حزف</th>
+                           
                         </tr>
                     </thead>
                     <tbody>
@@ -61,12 +68,7 @@
                                     <?php echo $row['end_date']; ?>
                                 </td>
                                
-                                <td>
-                                    <a href="<?php url('/users/edit/' . $row['id']) ?>" class="btn btn-info">تعديل</a>
-                                </td>
-                                <td>
-                                    <a href="<?php url('/users/delete/' . $row['id']) ?>" class="btn btn-danger">حزف</a>
-                                </td>
+                               
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

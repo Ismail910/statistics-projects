@@ -109,8 +109,7 @@
         </tbody>
       </table>
     </div>
-    <?php else: ?>
-    <p>Not found result .</p>
+   
   <?php endif; ?>
   </div>
   <div class="col-12 col-md-4 mb-2 mt-3" id="endDateDiv">

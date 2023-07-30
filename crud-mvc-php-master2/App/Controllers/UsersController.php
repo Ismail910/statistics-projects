@@ -129,8 +129,6 @@ class UsersController extends Controller
 
     public function search()
     {
-
-
        if ($_POST['query']==""){
             $data['users'] = $this->conn->getAllUsers();
             return $this->view('users/index',$data);
@@ -142,6 +140,38 @@ class UsersController extends Controller
             
             return $this->view('users/search', $data);
         }
+    }
+    
+    public function searchByCountry()
+    {
+       if ($_POST['query']==""){
+            $data['users'] = $this->conn->getAllUsers();
+            return $this->view('users/index',$data);
+        }else{
+
+            $searchQuery = $_POST['query'];
+            $usersModel = new Users();
+            $data['searchResults'] = $usersModel->searchByNationality($searchQuery);
+            $data['statisticsResults'] = $this->calculateResultStatistics($data['searchResults']);
+            return $this->view('users/search', $data);
+        }
+    }
+
+
+    private function calculateResultStatistics($results){
+
+        $totalUsers =  $this->conn->getAllUsers();
+
+        $totalUsersOfCountry = count($results);
+
+        $countryPercentage = ($totalUsers > 0) ? ($totalUsersOfCountry / $totalUsers) * 100 : 0;
+
+        $countryPercentageFormatted = number_format($countryPercentage, 0);
+
+        return [
+            'country_percentage' => $countryPercentageFormatted . '%',
+        ];
+
     }
 
     
