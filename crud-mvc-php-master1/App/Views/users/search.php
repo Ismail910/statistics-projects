@@ -21,8 +21,8 @@
         <div class="col-12">
             <h3>إحصائيات البحث:</h3>
             <p>عدد النتائج: <?php echo count($searchResults); ?></p>
-            <p>نسبة النتائج التي تمت: <?php echo $statisticsResults['pass_percentage']; ?> </p>
-            <p>نسبة النتائج التي لم تتم: <?php echo $statisticsResults['not_pass_percentage']; ?> </p>
+            <p>نسبة النتائج التي تمت: <?php echo $statisticsResults['pass_percentage']; ?></p>
+            <p>نسبة النتائج التي لم تتم: <?php echo $statisticsResults['not_pass_percentage']; ?></p>
            
         </div>
     </div>
@@ -46,7 +46,6 @@
                         </tr>
                     </thead>
                     <tbody>
-
                         <?php $i = 1; ?>
                         <?php foreach ($searchResults as $row): ?>
                             <tr>
