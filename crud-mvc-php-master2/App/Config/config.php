@@ -3,10 +3,8 @@
 
 define("BURL","http://mvc2.local:8080/");
 
-
-
 define("DB_HOST","localhost");
 define("DB_USER","root");
 define("DB_PASS","");
 define("DB_PORT",3306);
-define("DB_NAME","MVC2");
+define("DB_NAME","mvc2");

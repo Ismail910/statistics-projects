@@ -28,8 +28,9 @@ class UsersController extends Controller
     {
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
-            $nationality = $_POST['nationality'];
             $id_number = $_POST['id_number'];
+            $nationality = $_POST['nationality'];
+           
             $company = $_POST['company'];
             $start_date = $_POST['start_date'];
             $end_date = $_POST['end_date'];
@@ -37,8 +38,9 @@ class UsersController extends Controller
             $this->conn = new Users();
             $dataInsert = array(
                 "name" => $name,
-                "nationality" => $nationality,
                 "id_number" => $id_number,
+                "nationality" => $nationality,
+               
                 "company" => $company,
                 "start_date" => $start_date,
                 "end_date" => $end_date,
@@ -49,7 +51,9 @@ class UsersController extends Controller
                 $data['success'] = "Data Added Successfully";
                 return $this->view('users/add', $data);
             } else {
+               
                 $data['error'] = "Error";
+
                 return $this->view('users/add', $data);
             }
         }
@@ -125,14 +129,17 @@ class UsersController extends Controller
 
     public function search()
     {
-        if (isset($_POST['query'])) {
+
+       if ($_POST['query']==""){
+            $data['users'] = $this->conn->getAllUsers();
+            return $this->view('users/index',$data);
+        }else{
             $searchQuery = $_POST['query'];
             $usersModel = new Users();
             $data['searchResults'] = $usersModel->searchUsers($searchQuery);
-            return $this->view('users/search', $data);
+            echo 'asdf';
+            // return $this->view('users/search', $data);
         }
-        $data['users'] = $this->conn->getAllUsers();
-        return $this->view('users/index', $data);
     }
 
 
