@@ -16,6 +16,19 @@
                 </h3>
             <?php endif; ?>
 
+
+            <div class="row mb-3">
+        <div class="col-12">
+            <h3>إحصائيات البحث:</h3>
+            <p>عدد النتائج: <?php echo count($searchResults); ?></p>
+            <p>نسبة النتائج التي تمت: <?php echo $statisticsResults['pass_percentage']; ?> </p>
+            <p>نسبة النتائج التي لم تتم: <?php echo $statisticsResults['not_pass_percentage']; ?> </p>
+           
+        </div>
+    </div>
+
+
+
             <?php if (isset($searchResults) && count($searchResults) > 0): ?>
                 <table class="table">
                     <thead class="thead-dark">
@@ -24,7 +37,7 @@
                             <th scope="col">الاسم</th>
                             <th scope="col">الرتبه او الوظيفه </th>
                             <th scope="col">الجناج او القسم</th>
-                            <th scope="col">رقم التلفون</th>
+                            <th scope="col"> الهاتف</th>
                             <th scope="col"> تاريخ البدء</th>
                             <th scope="col">تاريخ الانتهاء</th>
                             <th scope="col">الحاله</th>

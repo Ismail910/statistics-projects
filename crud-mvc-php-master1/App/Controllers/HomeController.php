@@ -21,14 +21,20 @@ class HomeController extends Controller
         $passPercentage = $statusStatistics['pass_percentage'];
         $notPassPercentage = $statusStatistics['not_pass_percentage'];
         $endDatePercentage = $statusStatistics['end_Date_Percentage'];
+        $passusers = $statusStatistics['pass_users'];
+        $notpassusers = $statusStatistics['not_pass_users'];
+        $alluserswithenddatepast = $statusStatistics['all_users_with_end_date_past'];
 
         $this->view('home', [
             'passCount' => $passCount,
             'notPassCount' => $notPassCount,
-            'endDateCount' => $notPassCount,
+            'endDateCount' => $endDateCount,
             'passPercentage' => $passPercentage,
             'notPassPercentage' => $notPassPercentage,
             'endDatePercentage' => $endDatePercentage,
+            'passusers' => $passusers,
+            'notpassusers' => $notpassusers,
+            'alluserswithenddatepast' => $alluserswithenddatepast,
         ]);
     }
 

@@ -146,9 +146,42 @@ class UsersController extends Controller
             $searchQuery = $_POST['query'];
             $usersModel = new Users();
             $data['searchResults'] = $usersModel->searchUsers($searchQuery);
+            $data['statisticsResults'] = $this->calculateResultStatistics($data['searchResults']);
             return $this->view('users/search', $data);
         }
     }
 
+
+    private function calculateResultStatistics($results)
+    {
+        $totalUsers = count($results);
+        $passCount = 0;
+        $notPassCount = 0;
+    
+        foreach ($results as $user) {
+            if ($user['status'] == 'pass') {
+                $passCount++;
+            }
+            if ($user['status'] == 'not pass') {
+                $notPassCount++;
+            }
+        }
+    
+        $passPercentage = ($totalUsers > 0) ? ($passCount / $totalUsers) * 100 : 0;
+        $notPassPercentage = 100 - $passPercentage;
+    
+        // Format the percentage values to show only the integer part (without decimals)
+        $passPercentageFormatted = number_format($passPercentage, 0);
+        $notPassPercentageFormatted = number_format($notPassPercentage, 0);
+    
+        return [
+            'pass_count' => $passCount,
+            'not_pass_count' => $notPassCount,
+            'pass_percentage' => $passPercentageFormatted . '%',
+            'not_pass_percentage' => $notPassPercentageFormatted . '%',
+        ];
+    }
+    
+
    
-}
+} 
