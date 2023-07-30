@@ -125,7 +125,7 @@ class UsersController extends Controller
 
     public function search()
     {
-        if($_POST['query']){
+        if($_POST['query']==""){
             $data['users'] = $this->conn->getAllUsers();
             return $this->view('users/index', $data);
         }
@@ -138,5 +138,6 @@ class UsersController extends Controller
  
     }
 
+    
 
 }
