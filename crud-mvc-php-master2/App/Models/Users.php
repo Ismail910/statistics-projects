@@ -100,10 +100,11 @@ class Users
     }
 
     public function searchByNationality($nationality){
-        $searchQuery = '%' . $nationality . '%';
-        $query = "SELECT * FROM `{$this->table}` WHERE `nationality` LIKE '{$searchQuery}'";
+        $nationality = strtolower($nationality);
+        $query = "SELECT * FROM `{$this->table}` WHERE LOWER(`nationality`) = '{$nationality}'";
         return $this->db->rawQuery($query);
     }
+    
     
 
 
