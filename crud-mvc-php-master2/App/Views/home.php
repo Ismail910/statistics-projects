@@ -33,6 +33,9 @@
     background-color: #4a5889;
     border-radius: 10px;
   }
+  .makePointer{
+    cursor: pointer;
+  }
 </style>
 
 <!-- style="background-image: url('<?php echo BURL . 'assets/images/img2.jpg'; ?>'); background-size: cover; background-position: center;opacity:.7;" -->
@@ -80,7 +83,7 @@
 <div class="container">
     <div class="row">
   <div class="col-12 col-md-4 mb-2 mt-3" id="startDateDiv">
-    <p>عدد الذين لم يتخطو تاريخ الانتهاء:
+    <p class="makePointer">عدد الذين لم يتخطو تاريخ الانتهاء:
       <?php echo $startDateCount; ?>
     </p>
     <?php if (count($allUsersEndDateResult) > 0): ?>
@@ -123,7 +126,7 @@
   <?php endif; ?>
   </div>
   <div class="col-12 col-md-4 mb-2 mt-3" id="endDateDiv">
-    <p>عدد الذين تخطو تاريخ الانتهاء:
+    <p class="makePointer">عدد الذين تخطو تاريخ الانتهاء:
       <?php echo $endDateCount; ?>
     </p>
     <?php if (count($allUsersStartDateResult) > 0): ?>

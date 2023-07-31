@@ -34,8 +34,8 @@
     color:white;
     border-radius: 10px;
   }
-  .headData{
-    
+  .makePointer{
+    cursor: pointer;
   }
 </style>
 
@@ -111,7 +111,7 @@
   <div class="container">
     <div class="row">
     <div class="col-12 col-md-4 mb-2 mt-3" id="passDiv">
-    <p class="headData">عدد الذين تم :
+    <p class="makePointer">عدد الذين تم :
       <?php echo $passCount; ?>
     </p>
     <div id="passUsersData" style="display: none;">
@@ -150,7 +150,7 @@
     </div>
   </div>
   <div class="col-12 col-md-4 mb-2 mt-3" id="notPassDiv">
-    <p class="headData">عدد الذين  لم يتم:
+    <p class="makePointer">عدد الذين  لم يتم:
       <?php echo $notPassCount; ?>
     </p>
    
@@ -186,7 +186,7 @@
     </div>
   </div>
   <div class="col-12 col-md-4 mb-2 mt-3" id="endDateDiv">
-    <p class="headData">عدد الذين تخطو تاريخ الانتهاء:
+    <p class="makePointer">عدد الذين تخطو تاريخ الانتهاء:
       <?php echo $endDateCount; ?>
     </p>
     <div id="endDateUsersData" style="display: none;">
