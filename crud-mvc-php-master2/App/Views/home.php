@@ -44,8 +44,8 @@
   <div class="container">
     <div class="row mb-5 d-flex justify-content-center">
       <div class="col-md-6 col-12">
-        <h1 class="display-4">مرحبا</h1>
-        <p class="lead">الاحصائيات</p>
+        <h1 class="display-4">التزكيات الامنية</h1>
+        <!-- <p class="lead">الاحصائيات</p> -->
       </div>
       <div class="col-md-6 col-12 ">
         <img src="<?php echo BURL . 'assets/images/img2.jpg'; ?>" width="100%" height="400px" alt=""
