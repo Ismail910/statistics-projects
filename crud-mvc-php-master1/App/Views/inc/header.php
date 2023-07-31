@@ -55,5 +55,8 @@
       </ul>
     </div>
     </div>
+    <a class="navbar-brand" href="<?php url(); ?>">
+      <img src="<?php echo BURL.'assets/images/WhatsApp Image 2023-07-30 at 7.20.16 PM.jpeg'; ?>" width="60" height="60" alt="" style="border-radius:50%;">
+      </a>
   </div>
 </nav>

@@ -1,4 +1,13 @@
 <?php include(VIEWS . 'inc' . DS . 'header.php'); ?>
+<style>
+    body {
+    color: white;
+    font-weight: bold;
+    background: rgb(135,161,200);
+    background: linear-gradient(90deg, rgba(135,161,200,0.9864320728291317) 12%, rgba(165,179,232,1) 48%, rgba(17,10,70,0.989233193277311) 100%);
+
+  }
+</style>
 
 <h1 class="text-center  my-5 py-3">نتائج البحث </h1>
 
