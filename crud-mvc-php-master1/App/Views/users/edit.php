@@ -13,7 +13,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-            <div class="col-8 mx-auto">
+            <div class="col-6">
 
             
                 <?php if(isset($success)): ?>

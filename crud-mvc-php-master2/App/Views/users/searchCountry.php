@@ -5,8 +5,7 @@
     font-weight: bold;
     background: rgb(135,161,200);
     background: linear-gradient(90deg, rgba(135,161,200,0.9864320728291317) 12%, rgba(165,179,232,1) 48%, rgba(17,10,70,0.989233193277311) 100%);
-
-  }
+    }
 </style>
 <h1 class="text-center  my-5 py-3">نتائج البحث </h1>
 
@@ -23,6 +22,18 @@
                     <?php echo $error; ?>
                 </h3>
             <?php endif; ?>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h3>إحصائيات البحث:</h3>
+                    <?php if (count($searchResults) != 0): ?>
+                        <p>عدد النتائج: <?php echo count($searchResults); ?></p>
+                        <p>نسبة عدد الاشخاص من دوله <?php echo $countryName; ?> بالنسبه لباقي الدول: <?php echo $statisticsResults['country_percentage']; ?></p>
+                    <?php else: ?>
+                       <p></p>
+                    <?php endif; ?>
+                </div>
+            </div>
 
             <?php if (isset($searchResults) && count($searchResults) > 0): ?>
                 <table class="table">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2023 at 02:32 AM
+-- Generation Time: Jul 31, 2023 at 02:24 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -31,7 +31,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `nationality` varchar(50) NOT NULL,
-  ` id_number` varchar(20) NOT NULL,
+  `ssn` varchar(20) NOT NULL,
   `company` varchar(50) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL

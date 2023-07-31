@@ -94,14 +94,14 @@ class Users
     {
         $searchQuery = '%' . $searchQuery . '%';
     
-        $query = "SELECT * FROM `{$this->table}` WHERE `name` LIKE '{$searchQuery}' OR `nationality` LIKE '{$searchQuery}' OR `ssn` LIKE '{$searchQuery}' OR `start_date` LIKE '{$searchQuery}' OR `end_date` LIKE '{$searchQuery}'";
+        $query = "SELECT * FROM `{$this->table}` WHERE `name` LIKE '{$searchQuery}' OR `company` LIKE '{$searchQuery}' OR `ssn` LIKE '{$searchQuery}' OR `start_date` LIKE '{$searchQuery}' OR `end_date` LIKE '{$searchQuery}'";
 
         return $this->db->rawQuery($query);
     }
 
     public function searchByNationality($nationality){
         $searchQuery = '%' . $nationality . '%';
-        $query = "SELECT * FROM `{$this->table}` WHERE `company` LIKE '{$searchQuery}'";
+        $query = "SELECT * FROM `{$this->table}` WHERE `nationality` LIKE '{$searchQuery}'";
         return $this->db->rawQuery($query);
     }
     

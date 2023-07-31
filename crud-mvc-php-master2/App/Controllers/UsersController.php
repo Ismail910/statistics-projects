@@ -153,7 +153,8 @@ class UsersController extends Controller
             $usersModel = new Users();
             $data['searchResults'] = $usersModel->searchByNationality($searchQuery);
             $data['statisticsResults'] = $this->calculateResultStatistics($data['searchResults']);
-            return $this->view('users/search', $data);
+            $data['countryName']= $_POST['query'];
+            return $this->view('users/searchCountry', $data);
         }
     }
 

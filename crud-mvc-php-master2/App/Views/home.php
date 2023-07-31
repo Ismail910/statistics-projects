@@ -2,12 +2,12 @@
 
 <style>
   body {
-    color: black;
+    color: white;
     font-weight: bold;
-    background: rgb(135, 185, 200);
-    background: linear-gradient(90deg, rgba(135, 185, 200, 0.9864320728291317) 12%, rgba(165, 232, 184, 1) 48%, rgba(14, 70, 10, 0.989233193277311) 100%);
-  }
+    background: rgb(135,161,200);
+    background: linear-gradient(90deg, rgba(135,161,200,0.9864320728291317) 12%, rgba(165,179,232,1) 48%, rgba(17,10,70,0.989233193277311) 100%);
 
+  }
   .imging {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
@@ -18,6 +18,13 @@
     background-color: #f1f1f1;
     border-radius: 10px;
     overflow: hidden;
+  }
+  .btnToggel{
+    height:50px;
+    border:none;
+    background-color:rgb(237, 137, 22);
+    color:white;
+    border-radius: 10px;
   }
 
   .progress-fill {
@@ -65,10 +72,13 @@
 </div>
 
 
-<button id="toggleDataButton">عرض البيانات الخاصه بالاحصائيات </button>
+<div class="container">
+<button id="toggleDataButton" class="btnToggel">عرض البيانات الخاصه بالاحصائيات </button>
+</div>
 
 <div id="dataContainer">
-  
+<div class="container">
+    <div class="row">
   <div class="col-12 col-md-4 mb-2 mt-3" id="startDateDiv">
     <p>عدد الذين لم يتخطو تاريخ الانتهاء:
       <?php echo $startDateCount; ?>
@@ -156,6 +166,8 @@
     <p>Not found result .</p>
   <?php endif; ?>
   </div>
+    </div>
+    </div>
 </div>
 
 <script>

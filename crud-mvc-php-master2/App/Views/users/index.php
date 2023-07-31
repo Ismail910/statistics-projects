@@ -1,23 +1,62 @@
 <?php  include(VIEWS.'inc'.DS.'header.php'); ?>
 
 
-<!-- Search form -->
-<form action="<?php  url('users/search'); ?>" method="POST">
-    <div class="form-group">
-        <input type="text" class="form-control" name="query" placeholder="Search  ">
-    </div>
-    <button type="submit" class="btn btn-primary">بحث</button>
-</form>
+<style>
+    /* Custom styles for search input */
+    .search-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20vh; /* Adjust as needed */
+    }
 
-<!-- Search form -->
-<form action="<?php  url('users/searchByCountry'); ?>" method="POST">
-    <div class="form-group">
-        <input type="text" class="form-control" name="query" placeholder="Search by country">
-    </div>
-    <button type="submit" class="btn btn-primary">بحث عن الدوله</button>
-</form>
+    body {
+    color: white;
+    font-weight: bold;
+    background: rgb(135,161,200);
+    background: linear-gradient(90deg, rgba(135,161,200,0.9864320728291317) 12%, rgba(165,179,232,1) 48%, rgba(17,10,70,0.989233193277311) 100%);
+  }
 
-<h1 class="text-center  my-5 py-3">عرض كل الاشخاص  </h1>
+    .search-form {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        padding: 10px;
+        background-color:white;
+    }
+
+    .search-form input {
+        border: none;
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .search-form button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+</style>
+<!-- Search form -->
+<div class="container">
+    <div class="row">
+        <div class="search-container col-6">
+            <form action="<?php  url('users/search'); ?>" method="POST" class="search-form">
+            <input type="text" name="query" placeholder="ابحث ....">
+            <button type="submit"><img src="<?php echo BURL.'assets/images/search.png'; ?>" width="30px" height="30px" alt="Search Icon"></button>
+            </form>
+           </div>
+            <!-- Search form -->
+            <div class="search-container col-6">
+            <form action="<?php  url('users/searchByCountry'); ?>" method="POST" class="search-form">
+             <!-- Search form -->
+             <input type="text" name="query" placeholder=" ابحث باسم الدولة ...">
+             <button type="submit"><img src="<?php echo BURL.'assets/images/search.png'; ?>" width="30px" height="30px" alt="Search Icon"></button>
+            </form>
+          </div>
+        </div>
+        <h1 class="text-center  my-5 py-3">عرض كل الاشخاص  </h1>
 
 <div class="container">
     <div class="row">
@@ -70,4 +109,9 @@
         </div>
     </div>
 </div>
+    </div>
+</div>
+
+
+
 <?php  include(VIEWS.'inc'.DS.'footer.php'); ?>

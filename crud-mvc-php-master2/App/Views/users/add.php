@@ -1,10 +1,19 @@
 <?php include(VIEWS . 'inc' . DS . 'header.php'); ?>
+<style>
+    body {
+    color: white;
+    font-weight: bold;
+    background: rgb(135,161,200);
+    background: linear-gradient(90deg, rgba(135,161,200,0.9864320728291317) 12%, rgba(165,179,232,1) 48%, rgba(17,10,70,0.989233193277311) 100%);
+
+  }
+</style>
 
 <h1 class="text-center  mt-5 mb-2 py-3"> اضافه  بيانات شخص جديد </h1>
 
 <div class="container">
-    <div class="row">
-        <div class="col-8 mx-auto">
+    <div class="row justify-content-center">
+    <div class="col-md-6">
 
 
             <?php if (isset($success)): ?>
@@ -51,8 +60,9 @@
                     <label for="end_date">تاريخ الانتهاء  </label>
                     <input type="date" required class="form-control" name="end_date" id="end_date">
                 </div>
-               
-                <button type="submit" name="submit" class="btn btn-primary">حفظ</button>
+                <div class="text-center mt-3">
+                <button type="submit" name="submit" class="btn btn-primary w-50">حفظ</button>
+                </div>
             </form>
 
         </div>
