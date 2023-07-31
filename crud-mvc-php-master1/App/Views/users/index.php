@@ -6,7 +6,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 50vh; /* Adjust as needed */
+        height: 20vh; /* Adjust as needed */
     }
 
     .search-form {
@@ -20,7 +20,7 @@
     .search-form input {
         border: none;
         padding: 5px;
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .search-form button {
@@ -30,14 +30,15 @@
     }
 </style>
 <div class="container">
-<div class="search-container">
+<div class="row">
+<div class="search-container col-12">
     <form action="<?php url('users/search'); ?>" method="POST" class="search-form">
-        <input type="text" name="query" placeholder="ابحث بالاسم او رقم التليفون ....">
+        <input type="text" name="query" placeholder="ابحث ....">
         <button type="submit"><img src="<?php echo BURL.'assets/images/search.png'; ?>" width="30px" height="30px" alt="Search Icon"></button>
     </form>
 </div>
- <div class="row">
-  <h1 class="text-center">عرض كل الاشخاص</h1>
+<div class="col-12">
+  <h1 class="text-center mt-2">عرض كل الاشخاص</h1>
         <div class="col-12">
             <?php if(isset($success)): ?>
                 <h3 class="alert alert-success text-center"><?php echo $success; ?></h3>
@@ -71,7 +72,8 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
-            </div>
+            </div>     
+           </div>
         </div>
     </div>
 </div>
