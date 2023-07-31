@@ -74,8 +74,13 @@ class Users
     
         $totalUsers = $passCount + $notPassCount;
         $endDatePercentage = ($totalUsers > 0) ? ($endDateCount / $totalUsers) * 100 : 0;
+        $formatendDatePercentage = number_format($endDatePercentage, 0);
+
         $passPercentage = ($totalUsers > 0) ? ($passCount / $totalUsers) * 100 : 0;
+        $formatpassPercentage = number_format($passPercentage, 0);
+
         $notPassPercentage = 100 - $passPercentage;
+        $formatnotPassPercentage = number_format($notPassPercentage, 0);
     
        
         $PassUsersQuery = "SELECT * FROM `{$this->table}` WHERE `status` = 'pass'";
@@ -91,9 +96,9 @@ class Users
             'pass_count' => $passCount,
             'not_pass_count' => $notPassCount,
             'end_Date_Count' => $endDateCount,
-            'pass_percentage' => $passPercentage,
-            'not_pass_percentage' => $notPassPercentage,
-            'end_Date_Percentage' => $endDatePercentage,
+            'pass_percentage' => $formatpassPercentage,
+            'not_pass_percentage' => $formatnotPassPercentage,
+            'end_Date_Percentage' => $formatendDatePercentage,
             'pass_users' => $PassUsersResult,
             'not_pass_users' => $notPassUsersResult,
             'all_users_with_end_date_past' => $allUsersResult
