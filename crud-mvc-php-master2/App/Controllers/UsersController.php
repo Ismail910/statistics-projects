@@ -160,7 +160,7 @@ class UsersController extends Controller
 
     private function calculateResultStatistics($results){
 
-        $totalUsers =  $this->conn->getAllUsers();
+        $totalUsers =  count($this->conn->getAllUsers());
 
         $totalUsersOfCountry = count($results);
 

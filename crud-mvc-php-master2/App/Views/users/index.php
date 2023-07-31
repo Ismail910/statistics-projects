@@ -4,9 +4,17 @@
 <!-- Search form -->
 <form action="<?php  url('users/search'); ?>" method="POST">
     <div class="form-group">
-        <input type="text" class="form-control" name="query" placeholder="Search by name, position, or department">
+        <input type="text" class="form-control" name="query" placeholder="Search  ">
     </div>
     <button type="submit" class="btn btn-primary">بحث</button>
+</form>
+
+<!-- Search form -->
+<form action="<?php  url('users/searchByCountry'); ?>" method="POST">
+    <div class="form-group">
+        <input type="text" class="form-control" name="query" placeholder="Search by country">
+    </div>
+    <button type="submit" class="btn btn-primary">بحث عن الدوله</button>
 </form>
 
 <h1 class="text-center  my-5 py-3">عرض كل الاشخاص  </h1>
