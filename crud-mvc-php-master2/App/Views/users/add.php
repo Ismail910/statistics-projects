@@ -1,11 +1,10 @@
 <?php include(VIEWS . 'inc' . DS . 'header.php'); ?>
 <style>
-    body {
+  body {
     color: white;
     font-weight: bold;
-    background: rgb(135,161,200);
-    background: linear-gradient(90deg, rgba(135,161,200,0.9864320728291317) 12%, rgba(165,179,232,1) 48%, rgba(17,10,70,0.989233193277311) 100%);
-
+    background: rgb(11,16,139);
+    background: linear-gradient(90deg, rgba(11,16,139,1) 13%, rgba(33,2,128,1) 48%, rgba(2,2,36,1) 100%);
   }
 </style>
 
