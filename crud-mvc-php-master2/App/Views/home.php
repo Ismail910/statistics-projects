@@ -28,7 +28,7 @@
   .progress-fill {
     height: 100%;
     width: 0;
-    background-color: #4a5889;
+    background-color: rgb(237, 137, 22);
     border-radius: 10px;
   }
   .makePointer{
