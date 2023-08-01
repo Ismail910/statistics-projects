@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="department">الجناح</label>
+                        <label for="department">الجناح / القسم</label>
                         <input type="text" required class="form-control" value="<?php echo $row['department']; ?>" name="department" id="department">
                     </div>
 

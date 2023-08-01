@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="department">الجناح</label>
+                    <label for="department">الجناح / القسم</label>
                     <input type="text" required class="form-control" name="department" id="department">
                 </div>
 

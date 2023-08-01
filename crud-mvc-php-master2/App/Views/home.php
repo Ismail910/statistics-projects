@@ -42,7 +42,7 @@
   <div class="container">
     <div class="row mb-5 d-flex justify-content-center">
       <div class="col-md-6 col-12">
-        <h1 class="display-4">التزكيات الامنية</h1>
+        <h1 class="display-4">التصاريح</h1>
         <!-- <p class="lead">الاحصائيات</p> -->
       </div>
       <div class="col-md-6 col-12 ">
@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="row d-flex justify-content-center">
-      
+    <p class="fs-1">الاحصائيات  </p>
      
       <div class="col-12 mb-2 mt-3">
         <p>عدد الذين تخطو تاريخ الانتهاء:

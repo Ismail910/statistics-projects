@@ -66,8 +66,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $row['name']; ?></h5>
-                                <p class="card-text">الرتبه او الوظيفه: <?php echo $row['position']; ?></p>
-                                <p class="card-text">الجناج او القسم: <?php echo $row['department']; ?></p>
+                                <p class="card-text">الرتبه  : <?php echo $row['position']; ?></p>
+                                <p class="card-text">الجناح / القسم :<?php echo $row['department']; ?></p>
                                 <p class="card-text">الهاتف : <?php echo $row['phone_number']; ?></p>
                                 <p class="card-text">تاريخ البدء: <?php echo $row['start_date']; ?></p>
                                 <p class="card-text" <?php if ($difference <= 7 && $difference >= 0): ?> style="background-color: red;" <?php elseif ($difference <= 14 && $difference >= 0): ?> style="background-color: yellow;" <?php endif; ?>>

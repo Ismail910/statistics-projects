@@ -45,7 +45,7 @@
   <div class="container">
     <div class="row mb-5 d-flex justify-content-center">
       <div class="col-md-6 col-12">
-        <h1 class="display-4">التصاريح</h1>
+        <h1 class="display-4 fs-1 ">  التزكيات الامنيه</h1>
         <!-- <p class="lead">الاحصائيات</p> -->
       </div>
       <div class="col-md-6 col-12 ">
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="row d-flex justify-content-center">
-      <p style="">الاحصائيات الاشخاص المقبولين</p>
+      <p class="fs-1">الاحصائيات  </p>
       <div class="col-12 col-md-4 mb-2 mt-3">
         <p>عدد الذين تم :
           <?php echo $passCount; ?>

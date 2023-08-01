@@ -44,8 +44,8 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">الاسم</th>
-                            <th scope="col">الرتبه او الوظيفه </th>
-                            <th scope="col">الجناج او القسم</th>
+                            <th scope="col">الرتبه   </th>
+                            <th scope="col">الجناح / القسم </th>
                             <th scope="col"> الهاتف</th>
                             <th scope="col"> تاريخ البدء</th>
                             <th scope="col">تاريخ الانتهاء</th>
