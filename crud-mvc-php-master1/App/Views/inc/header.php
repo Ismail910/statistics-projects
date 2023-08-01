@@ -33,7 +33,7 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary text-dark">
   <div class="container-fluid">
       <a class="navbar-brand" href="<?php url(); ?>">
-      <img src="<?php echo BURL.'assets/images/logo.jpeg'; ?>" width="60" height="60" alt="" style="border-radius:50%;">
+      <img src="<?php echo BURL.'assets/images/WhatsApp Image 2023-07-30 at 7.20.17 PM.jpeg'; ?>" width="100" height="100" alt="" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
       </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -56,7 +56,7 @@
     </div>
     </div>
     <a class="navbar-brand" href="<?php url(); ?>">
-      <img src="<?php echo BURL.'assets/images/WhatsApp Image 2023-07-30 at 7.20.16 PM.jpeg'; ?>" width="60" height="60" alt="" style="border-radius:50%;">
+      <img src="<?php echo BURL.'assets/images/WhatsApp Image 2023-07-30 at 7.20.16 PM.jpeg'; ?>"  width="100" height="100" alt="" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
       </a>
   </div>
 </nav>
