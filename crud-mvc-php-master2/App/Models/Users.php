@@ -72,18 +72,22 @@ class Users
         $startDateCount = $totalUsers - $endDateCount;
     
         $endDatePercentage = ($totalUsers > 0) ? ($endDateCount / $totalUsers) * 100 : 0;
+        $formatEndDatePercentage = number_format($endDatePercentage, 0);
 
         $allUsersStartDateQuery = "SELECT * FROM `{$this->table}` WHERE `start_date` < CURDATE()";
         $allUsersStartDateResult = $this->db->rawQuery($allUsersStartDateQuery);
+       
 
         $allUsersEndDateQuery = "SELECT * FROM `{$this->table}` WHERE `end_date` > CURDATE()";
         $allUsersEndDateResult = $this->db->rawQuery($allUsersEndDateQuery);
+       
+
 
         
         return [
             'startDateCount' => $startDateCount,
             'endDateCount' => $endDateCount,
-            'endDatePercentage' => $endDatePercentage,
+            'endDatePercentage' => $formatEndDatePercentage,
             'allUsersStartDateResult' => $allUsersStartDateResult,
             'allUsersEndDateResult' => $allUsersEndDateResult,
         ];
