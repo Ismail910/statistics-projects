@@ -67,43 +67,48 @@
                 <?php if(isset($error)): ?>
                     <h3 class="alert alert-danger text-center"><?php  echo $error; ?></h3>
                 <?php endif; ?>
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                    <th scope="col">#</th>
-                            <th scope="col">الاسم</th>
-                            <th scope="col"> رقم الهويه او رقم الاقامه</th>
-                            <th scope="col">الجنسيه</th>
-                            <th scope="col">اسم الشركه او المؤسسه</th>
-                            <th scope="col"> تاريخ البدء</th>
-                            <th scope="col">تاريخ الانتهاء</th>
-                            <th scope="col">تعديل</th>
-                            <th scope="col">حزف</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i=1; ?>
-                    <?php foreach($users as $row): ?>
-                        <tr>
-                            <td> <?php echo $i; $i++; ?></td>
-                            <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['ssn']; ?></td>
-                            <td><?php echo $row['nationality']; ?></td>
-                            <td class="text-center"><?php echo $row['company']; ?></td>
-                           
-                            <td><?php echo $row['start_date']; ?></td>
-                            <td><?php echo $row['end_date']; ?></td>
-                           
-                            <td>
-                                <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info" >نعديل</a>
-                            </td>
-                            <td>
-                                <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger" >حزف</a>
-                            </td>
-                        </tr>
-                    <?php  endforeach; ?>
-                </tbody>
-            </table>
+                <table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">الاسم</th>
+            <th scope="col"> رقم الهويه او رقم الاقامه</th>
+            <th scope="col">الجنسيه</th>
+            <th scope="col">اسم الشركه او المؤسسه</th>
+            <th scope="col"> تاريخ البدء</th>
+            <th scope="col">تاريخ الانتهاء</th>
+            <th scope="col">تعديل</th>
+            <th scope="col">حزف</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $i=1; ?>
+        <?php foreach($users as $row): ?>
+            <?php
+                        // Calculate the difference in days between the end date and the current date
+                        $endDate = strtotime($row['end_date']);
+                        $currentDate = time();
+                        $difference = (($endDate - $currentDate) / (60 * 60 * 24))+2; // Convert seconds to days
+            ?>
+            <tr>
+                <td><?php echo $i; $i++; ?></td>
+                <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['ssn']; ?></td>
+                <td><?php echo $row['nationality']; ?></td>
+                <td class="text-center"><?php echo $row['company']; ?></td>
+                <td><?php echo $row['start_date']; ?></td>
+                <td <?php if ($difference <= 7 && $difference >= 0): ?> style="background-color: red;" <?php elseif ($difference <= 14 && $difference >= 0): ?> style="background-color: yellow;" <?php endif; ?>><?php echo $row['end_date']; ?></td>
+                <td>
+                    <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info">نعديل</a>
+                </td>
+                <td>
+                    <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger">حزف</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
 
 
         </div>
