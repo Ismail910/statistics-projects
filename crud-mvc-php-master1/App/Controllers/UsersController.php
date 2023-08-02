@@ -33,20 +33,22 @@ class UsersController extends Controller
         {
             $name = $_POST['name'];
             $position = $_POST['position'];
-            $phone_number = $_POST['phone_number'];
+            $Job_ID = $_POST['Job_ID'];
             $department = $_POST['department'];
             $start_date = $_POST['start_date'];
             $end_date = $_POST['end_date'];
-            $status = $_POST['status'];
+            $status = $_POST['status'];   
+            $reasonOFRequest = $_POST['reasonOFRequest'];    
 
             $this->conn = new Users();
             $dataInsert = Array ( "name" => $name ,
                             "position" => $position ,
-                            "phone_number" => $phone_number ,
+                            "Job_ID" => $Job_ID ,
                             "department" => $department , 
                             "start_date" => $start_date , 
                             "end_date" => $end_date , 
                             "status" => $status , 
+                            "reasonOFRequest" => $reasonOFRequest , 
                             );
 
             if($this->conn->insertUsers($dataInsert))
@@ -81,21 +83,23 @@ class UsersController extends Controller
         {
             $name = $_POST['name'];
             $position = $_POST['position'];
-            $phone_number = $_POST['phone_number'];
+            $Job_ID = $_POST['Job_ID'];
             $department = $_POST['department'];
             $start_date = $_POST['start_date'];
             $end_date = $_POST['end_date'];
             $status = $_POST['status'];
+            $reasonOFRequest = $_POST['reasonOFRequest'];
             $id = $_POST['id'];
 
             $this->conn = new Users();
             $dataInsert = Array ( "name" => $name ,
                             "position" => $position ,
-                            "phone_number" => $phone_number ,
+                            "Job_ID" => $Job_ID ,
                             "department" => $department ,
                             "start_date" => $start_date ,
                             "end_date" => $end_date ,
                             "status" => $status ,
+                            "reasonOFRequest" => $reasonOFRequest ,
                             );
             
             

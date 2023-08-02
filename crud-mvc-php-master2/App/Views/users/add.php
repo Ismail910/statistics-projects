@@ -52,6 +52,21 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="religion"> الديانه</label>
+                    <input type="text" required class="form-control" name="religion" id="religion">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone_number"> رقم الهاتف</label>
+                    <input type="text" required class="form-control" name="phone_number" id="phone_number">
+                </div>
+
+                <div class="form-group">
+                    <label for="administrator_phone"> هاتف المسؤول</label>
+                    <input type="text" required class="form-control" name="administrator_phone" id="administrator_phone">
+                </div>
+
+                <div class="form-group">
                     <label for="start_date">تاريخ البدء  </label>
                     <input type="date" required class="form-control" name="start_date" id="start_date">
                 </div>

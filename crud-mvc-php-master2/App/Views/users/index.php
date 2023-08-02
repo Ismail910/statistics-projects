@@ -77,6 +77,9 @@
             <th scope="col">اسم الشركه او المؤسسه</th>
             <th scope="col"> تاريخ البدء</th>
             <th scope="col">تاريخ الانتهاء</th>
+            <th scope="col"> الديانه</th>
+            <th scope="col"> رقم الهاتف</th>
+            <th scope="col"> هاتف المسؤول  </th>
             <th scope="col">تعديل</th>
             <th scope="col">حزف</th>
         </tr>
@@ -97,7 +100,11 @@
                 <td><?php echo $row['nationality']; ?></td>
                 <td class="text-center"><?php echo $row['company']; ?></td>
                 <td><?php echo $row['start_date']; ?></td>
+              
                 <td <?php if ($difference <= 7 && $difference >= 0): ?> style="background-color: red;" <?php elseif ($difference <= 14 && $difference >= 0): ?> style="background-color: yellow;" <?php endif; ?>><?php echo $row['end_date']; ?></td>
+                <td><?php echo $row['religion']; ?></td>
+                <td><?php echo $row['phone_number']; ?></td>
+                <td><?php echo $row['administrator_phone']; ?></td>
                 <td>
                     <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info">نعديل</a>
                 </td>

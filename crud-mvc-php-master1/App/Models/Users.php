@@ -111,7 +111,7 @@ class Users
     {
         $searchQuery = '%' . $searchQuery . '%';
 
-        $query = "SELECT * FROM `{$this->table}` WHERE `name` LIKE '{$searchQuery}' OR `position` LIKE '{$searchQuery}' OR `department` LIKE '{$searchQuery}'OR `phone_number` LIKE '{$searchQuery}'OR `start_date` LIKE '{$searchQuery}'OR `end_date` LIKE '{$searchQuery}'OR `status` LIKE '{$searchQuery}'";
+        $query = "SELECT * FROM `{$this->table}` WHERE `name` LIKE '{$searchQuery}' OR `position` LIKE '{$searchQuery}' OR `department` LIKE '{$searchQuery}'OR `Job_ID` LIKE '{$searchQuery}'OR `start_date` LIKE '{$searchQuery}'OR `end_date` LIKE '{$searchQuery}'OR `status` LIKE '{$searchQuery}'";
         
         return $this->db->rawQuery($query);
        

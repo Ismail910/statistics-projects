@@ -34,16 +34,20 @@ class UsersController extends Controller
             $company = $_POST['company'];
             $start_date = $_POST['start_date'];
             $end_date = $_POST['end_date'];
-
+            $religion = $_POST['religion'];
+            $phone_number = $_POST['phone_number'];
+            $administrator_phone = $_POST['administrator_phone'];
             $this->conn = new Users();
             $dataInsert = array(
                 "name" => $name,
                 "ssn" => $ssn,
                 "nationality" => $nationality,
-               
                 "company" => $company,
                 "start_date" => $start_date,
                 "end_date" => $end_date,
+                "religion" => $religion,
+                "phone_number" => $phone_number,
+                "administrator_phone" => $administrator_phone,
 
             );
 
@@ -63,8 +67,6 @@ class UsersController extends Controller
     }
 
 
-
-
     public function edit($id)
     {
        
@@ -81,6 +83,9 @@ class UsersController extends Controller
             $company = $_POST['company'];
             $start_date = $_POST['start_date'];
             $end_date = $_POST['end_date'];
+            $religion = $_POST['religion'];
+            $phone_number = $_POST['phone_number'];
+            $administrator_phone = $_POST['administrator_phone'];
             $id = $_POST['id'];
 
             $this->conn = new Users();
@@ -91,6 +96,9 @@ class UsersController extends Controller
                 "company" => $company,
                 "start_date" => $start_date,
                 "end_date" => $end_date,
+                "religion" => $religion,
+                "phone_number" => $phone_number,
+                "administrator_phone" => $administrator_phone,
 
             );
 

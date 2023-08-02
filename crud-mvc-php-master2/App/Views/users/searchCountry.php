@@ -44,6 +44,9 @@
                             <th scope="col">رقم الهويه</th>
                             <th scope="col"> الجنسيه </th>
                             <th scope="col"> الشركه </th>
+                            <th scope="col"> الديانه </th>
+                            <th scope="col"> رقم الهاتف </th>
+                            <th scope="col"> هاتف المسؤول </th>
                             <th scope="col"> تاريخ البدء</th>
                             <th scope="col">تاريخ الانتهاء</th>
                            
@@ -70,6 +73,15 @@
                                 </td>
                                 <td>
                                     <?php echo $row['company']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['religion']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['phone_number']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['administrator_phone']; ?>
                                 </td>
                                 <td>
                                     <?php echo $row['start_date']; ?>

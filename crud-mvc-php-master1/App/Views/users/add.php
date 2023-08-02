@@ -44,9 +44,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="phone_number">رقم الهاتف</label>
-                    <input type="text" required class="form-control" name="phone_number" id="phone_number">
+                    <label for="Job_ID">الرقم الوظيفي </label>
+                    <input type="text" required class="form-control" name="Job_ID" id="Job_ID">
                 </div>
+
+              
 
                 <div class="form-group">
                     <label for="start_date">تاريخ البدء</label>
@@ -64,6 +66,11 @@
                         <option value="pass">تم</option>
                         <option value="not pass">لم يتم</option>
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="reasonOFRequest"> سبب الطلب</label>
+                    <input type="text" required class="form-control" name="reasonOFRequest" id="reasonOFRequest">
                 </div>
 
                 <div class="text-center mt-3">

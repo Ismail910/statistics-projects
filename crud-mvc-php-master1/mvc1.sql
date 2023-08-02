@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2023 at 12:01 AM
+-- Generation Time: Aug 02, 2023 at 03:00 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -24,31 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
---
-
-CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `price` float NOT NULL,
-  `description` varchar(250) NOT NULL,
-  `qty` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `products`
---
-
-INSERT INTO `products` (`id`, `name`, `price`, `description`, `qty`) VALUES
-(6, 'TV Samsung', 20, 'any desc', 20),
-(8, 'IPhone 7+', 100, 'any desc2', 100),
-(9, 'Smart Screen LG', 250, 'new description', 300),
-(10, 'Calculator', 23, 'Calculator Description', 25),
-(11, 'Laptop HP2', 1000, 'Laptop HP Description', 50);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -56,29 +31,25 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `position` varchar(50) NOT NULL,
-  `phone_number` varchar(20) NOT NULL,
+  `Job_ID` varchar(20) NOT NULL,
   `department` varchar(50) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  `status` enum('pass','not pass') NOT NULL
+  `status` enum('pass','not pass') NOT NULL,
+  `reasonOFRequest` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `position`, `phone_number`, `department`, `start_date`, `end_date`, `status`) VALUES
-(1, 'ismail', 'asd', '+201153037595', 'asd', '2023-07-13', '2023-07-31', 'pass');
+INSERT INTO `users` (`id`, `name`, `position`, `Job_ID`, `department`, `start_date`, `end_date`, `status`, `reasonOFRequest`) VALUES
+(8, ' ismail magdy ismail', 'fsdfsdf', 'dsfsdfsd', 'sdfsdf', '2023-08-16', '2023-08-24', 'not pass', ''),
+(9, 'ismail', 'sdasdasd', '1111111111111', 'asd', '2023-08-18', '2023-08-10', 'pass', ' ي بس ب سيب سي بس ب sdf sd fs df');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -91,16 +62,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

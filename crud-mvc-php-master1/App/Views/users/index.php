@@ -68,12 +68,13 @@
                                 <h5 class="card-title"><?php echo $row['name']; ?></h5>
                                 <p class="card-text">الرتبه  : <?php echo $row['position']; ?></p>
                                 <p class="card-text">الجناح / القسم :<?php echo $row['department']; ?></p>
-                                <p class="card-text">الهاتف : <?php echo $row['phone_number']; ?></p>
+                                <p class="card-text">الهاتف : <?php echo $row['Job_ID']; ?></p>
                                 <p class="card-text">تاريخ البدء: <?php echo $row['start_date']; ?></p>
                                 <p class="card-text" <?php if ($difference <= 7 && $difference >= 0): ?> style="background-color: red;" <?php elseif ($difference <= 14 && $difference >= 0): ?> style="background-color: yellow;" <?php endif; ?>>
                                     تاريخ الانتهاء: <?php echo $row['end_date']; ?>
                                 </p>
                                 <p class="card-text">الحاله: <?php echo $row['status']; ?></p>
+                                <p class="card-text">سبب الطلب: <?php echo $row['reasonOFRequest']; ?></p>
                                 <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info">تعديل</a>
                                 <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger">حذف</a>
                             </div>

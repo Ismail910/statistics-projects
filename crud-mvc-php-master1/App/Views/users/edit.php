@@ -45,8 +45,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="phone_number">رقم الهاتف</label>
-                        <input type="text" required class="form-control" value="<?php echo $row['phone_number']; ?>" name="phone_number" id="phone_number">
+                        <label for="Job_ID">رقم الهاتف</label>
+                        <input type="text" required class="form-control" value="<?php echo $row['Job_ID']; ?>" name="Job_ID" id="Job_ID">
                     </div>
 
                     <div class="form-group">
@@ -67,6 +67,12 @@
                             <option value="not pass">لم يتم</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="reasonOFRequest">سبب الطلب </label>
+                        <input type="text" required class="form-control" value="<?php echo $row['reasonOFRequest']; ?>" name="reasonOFRequest" id="reasonOFRequest">
+                    </div>
+
                     <div class="text-center mt-3">
                     <button type="submit" name="submit" class="btn btn-primary w-50 ">تعديل</button>
                 </div>

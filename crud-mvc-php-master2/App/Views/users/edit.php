@@ -47,6 +47,20 @@
                         <label for="ssn">رقم الهويه او الاثامه </label>
                         <input type="text" required class="form-control" value="<?php echo $row['ssn']; ?>" name="ssn" id="ssn">
                     </div>
+                    <div class="form-group">
+                        <label for="religion">الديانه</label>
+                        <input type="text" required class="form-control" value="<?php echo $row['religion']; ?>" name="religion" id="religion">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone_number">رقم الهاتف </label>
+                        <input type="text" required class="form-control" value="<?php echo $row['phone_number']; ?>" name="phone_number" id="phone_number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="administrator_phone"> هاتف المسؤول </label>
+                        <input type="text" required class="form-control" value="<?php echo $row['administrator_phone']; ?>" name="administrator_phone" id="administrator_phone">
+                    </div>
 
                     <div class="form-group">
                         <label for="start_date">تاريخ البدء </label>

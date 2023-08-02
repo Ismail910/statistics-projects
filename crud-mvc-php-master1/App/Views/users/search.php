@@ -46,10 +46,11 @@
                             <th scope="col">الاسم</th>
                             <th scope="col">الرتبه   </th>
                             <th scope="col">الجناح / القسم </th>
-                            <th scope="col"> الهاتف</th>
+                            <th scope="col"> سبب الطلب</th>
                             <th scope="col"> تاريخ البدء</th>
                             <th scope="col">تاريخ الانتهاء</th>
                             <th scope="col">الحاله</th>
+                            <th scope="col">سبب الطلب</th>
                             <th scope="col">تعديل</th>
                             <th scope="col">حزف</th>
                         </tr>
@@ -72,7 +73,7 @@
                                     <?php echo $row['department']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['phone_number']; ?>
+                                    <?php echo $row['Job_ID']; ?>
                                 </td>
                                 <td>
                                     <?php echo $row['start_date']; ?>
@@ -82,6 +83,9 @@
                                 </td>
                                 <td>
                                     <?php echo $row['status']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['reasonOFRequest']; ?>
                                 </td>
                                 <td>
                                     <a href="<?php url('/users/edit/' . $row['id']) ?>" class="btn btn-info">تعديل</a>
