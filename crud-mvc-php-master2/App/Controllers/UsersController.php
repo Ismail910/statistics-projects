@@ -183,6 +183,14 @@ class UsersController extends Controller
 
     }
 
+
+    public function detail($id){
+       
+        $data['user'] = $this->conn->getUser($id);
+         
+        return $this->view('users/detail', $data);
+    }
+
     
 
 }

@@ -40,12 +40,11 @@
 </style>
 <!-- Search form -->
 <div class="container">
-    
-        <h1 class="text-center  my-5 py-3">عرض البيانات الشخص  </h1>
+        <h1 class="text-center  my-5 py-3"> عرض كل الاشخاص  </h1>
 
 <div class="container">
-    <div class="row">
-        <div class="col-11 mx-auto p-4 border mb-5">
+    <div class="user">
+        <div class="col-10 mx-auto p-4 border mb-5">
                 <?php if(isset($success)): ?>
                     <h3 class="alert alert-success text-center"><?php  echo $success; ?></h3>
                 <?php endif; ?>
@@ -56,50 +55,44 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col ">الاسم</th>
+            <th scope="col">الاسم</th>
             <th scope="col"> رقم الهويه او رقم الاقامه</th>
             <th scope="col">الجنسيه</th>
             <th scope="col">اسم الشركه او المؤسسه</th>
             <th scope="col"> تاريخ البدء</th>
             <th scope="col">تاريخ الانتهاء</th>
-            <th scope="col">تعديل</th>
-            <th scope="col">حذف</th>
+            <th scope="col"> الديانه</th>
+            <th scope="col"> رقم الهاتف</th>
+            <th scope="col"> هاتف المسؤول  </th>
+          
         </tr>
     </thead>
     <tbody>
         <?php $i=1; ?>
-        <?php foreach($users as $row): ?>
+       
             <?php
                        
-                        $endDate = strtotime($row['end_date']);
+                        $endDate = strtotime($user['end_date']);
                         $currentDate = time();
                         $difference = (($endDate - $currentDate) / (60 * 60 * 24))+2; 
             ?>
-            <tr >
+            <tr>
                 <td><?php echo $i; $i++; ?></td>
-                <td class=" fs-5">
-                    <a href="<?php  url('users/detail/' .$row['id']);  ?>"  style="color: black; text-decoration: none; " > 
-                    <?php  echo $row['name']; ?>
-                </a>   
+                <td>
+                    <?php  echo $user['name']; ?>  
             </td>
-                <td><?php echo $row['ssn']; ?></td>
-                <td><?php echo $row['nationality']; ?></td>
-                <td class="text-center"><?php echo $row['company']; ?></td>
-                <td><?php echo $row['start_date']; ?></td>
+                <td><?php echo $user['ssn']; ?></td>
+                <td><?php echo $user['nationality']; ?></td>
+                <td class="text-center"><?php echo $user['company']; ?></td>
+                <td><?php echo $user['start_date']; ?></td>
+              
+                <td <?php if ($difference <= 14 && $difference >= 0): ?> style="background-color: red;" <?php elseif ($difference <= 30 && $difference >= 15): ?> style="background-color: yellow;" <?php elseif ($difference <= 0 ): ?> style="background-color: black; color:white" <?php endif; ?>><?php echo $user['end_date']; ?></td>
+                <td><?php echo $user['religion']; ?></td>
+                <td><?php echo $user['phone_number']; ?></td>
+                <td><?php echo $user['administrator_phone']; ?></td>
                
-                <td <?php if ($difference <= 14 && $difference >= 0): ?> style="background-color: red;" <?php elseif ($difference <= 30 && $difference >= 15): ?> style="background-color: yellow;" <?php elseif ($difference < 0 ): ?> style="background-color: black; color:white;" <?php endif; ?>>
-                    <?php echo $row['end_date']; ?>
-                </td>
-
-               
-                <td>
-                    <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-warning">نعديل</a>
-                </td>
-                <td>
-                    <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger">حذف</a>
-                </td>
             </tr>
-        <?php endforeach; ?>
+        
     </tbody>
 </table>
 
