@@ -1,108 +1,72 @@
 <?php  include(VIEWS.'inc'.DS.'header.php'); ?>
 
-
 <style>
-    /* Custom styles for search input */
-    .search-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 20vh; /* Adjust as needed */
-    }
+   
+.testimonial-card .card-up {
+  height: 120px;
+  overflow: hidden;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
 
-    body {
-    color: white;
-    font-weight: bold;
-    background: rgb(11,16,139);
-    background: linear-gradient(90deg, rgba(11,16,139,1) 13%, rgba(33,2,128,1) 48%, rgba(2,2,36,1) 100%);
-  }
+.aqua-gradient {
+  background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
+}
 
-    .search-form {
-        display: flex;
-        align-items: center;
-        border: 1px solid #ccc;
-        border-radius: 20px;
-        padding: 10px;
-        background-color:white;
-    }
-
-    .search-form input {
-        border: none;
-        padding: 5px;
-        font-size: 12px;
-    }
-
-    .search-form button {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-    }
+.testimonial-card .avatar {
+  width: 120px;
+  margin-top: -60px;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 50%;
+}
 </style>
-<!-- Search form -->
-<div class="container">
-        <h1 class="text-center  my-5 py-3"> عرض كل الاشخاص  </h1>
 
-<div class="container">
-    <div class="user">
-        <div class="col-10 mx-auto p-4 border mb-5">
-                <?php if(isset($success)): ?>
-                    <h3 class="alert alert-success text-center"><?php  echo $success; ?></h3>
-                <?php endif; ?>
-                <?php if(isset($error)): ?>
-                    <h3 class="alert alert-danger text-center"><?php  echo $error; ?></h3>
-                <?php endif; ?>
-                <table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">الاسم</th>
-            <th scope="col"> رقم الهويه او رقم الاقامه</th>
-            <th scope="col">الجنسيه</th>
-            <th scope="col">اسم الشركه او المؤسسه</th>
-            <th scope="col"> تاريخ البدء</th>
-            <th scope="col">تاريخ الانتهاء</th>
-            <th scope="col"> الديانه</th>
-            <th scope="col"> رقم الهاتف</th>
-            <th scope="col"> هاتف المسؤول  </th>
-          
-        </tr>
-    </thead>
-    <tbody>
-        <?php $i=1; ?>
+<?php $i=1; ?>
        
-            <?php
-                       
-                        $endDate = strtotime($user['end_date']);
-                        $currentDate = time();
-                        $difference = (($endDate - $currentDate) / (60 * 60 * 24))+2; 
-            ?>
-            <tr>
-                <td><?php echo $i; $i++; ?></td>
-                <td>
-                    <?php  echo $user['name']; ?>  
-            </td>
-                <td><?php echo $user['ssn']; ?></td>
-                <td><?php echo $user['nationality']; ?></td>
-                <td class="text-center"><?php echo $user['company']; ?></td>
-                <td><?php echo $user['start_date']; ?></td>
-              
-                <td <?php if ($difference <= 14 && $difference >= 0): ?> style="background-color: red;" <?php elseif ($difference <= 30 && $difference >= 15): ?> style="background-color: yellow;" <?php elseif ($difference <= 0 ): ?> style="background-color: black; color:white" <?php endif; ?>><?php echo $user['end_date']; ?></td>
-                <td><?php echo $user['religion']; ?></td>
-                <td><?php echo $user['phone_number']; ?></td>
-                <td><?php echo $user['administrator_phone']; ?></td>
-               
-            </tr>
-        
-    </tbody>
-</table>
+       <?php
+                   $endDate = strtotime($user['end_date']);
+                   $currentDate = time();
+                   $difference = (($endDate - $currentDate) / (60 * 60 * 24))+2; 
+       ?>
 
 
 
-        </div>
+
+<div class="container">
+  <section class="mx-auto my-5" style="max-width: 23rem;">
+      
+    <div class="card testimonial-card mt-2 mb-3">
+      <div class="card-up aqua-gradient"></div>
+      <div class="avatar mx-auto white">
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg" class="rounded-circle img-fluid"
+          alt="woman avatar">
+      </div>
+      <div class="card-body text-center">
+        <h4 class="card-title font-weight-bold"> الاسم: <?php  echo $user['name']; ?> </h4>
+        <hr>    
+        <p>رقم الهويه او رقم الاقامه: <?php echo $user['ssn']; ?></p>
+        <p>الجنسيه:<?php echo $user['nationality']; ?></p>
+        <p>اسم الشركه او المؤسسه:<?php echo $user['company']; ?></p>
+        <p>الديانه:<?php echo $user['religion']; ?></p>
+        <p>رقم الهاتف:<?php echo $user['phone_number']; ?></p>
+        <p>هاتف المسؤول :<?php echo $user['administrator_phone']; ?></p>
+        <p> تاريخ البدء :<?php echo $user['start_date']; ?></p>
+        <p <?php if ($difference <= 14 && $difference >= 0): ?>style="background-color: red;" <?php elseif ($difference <= 30 && $difference >= 15): ?>style="background-color: yellow;" <?php elseif ($difference < 0): ?>style="background-color: black; color:white;" <?php endif; ?>>تاريخ الانتهاء:
+    <?php echo $user['end_date']; ?>
+</p>
+
+      </div>
     </div>
+    
+  </section>
 </div>
-    </div>
-</div>
+
+
+
+
+
+
 
 
 
