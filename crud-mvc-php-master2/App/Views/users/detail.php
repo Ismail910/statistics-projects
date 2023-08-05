@@ -62,7 +62,7 @@ background-color:lightgray;
       <div class="card-body ">
         <p class="card-title fw-bold fs-1 text-center" style="color:darkblue"> الاسم: <?php  echo $user['name']; ?> </p>
         <hr>  
-        <div class="d-flex justify-content-center row fs-5 fw-bold text-right">
+        <div class="d-flex justify-content-center row fs-5 fw-bold text-right ">
         <div class="col-5">  
         <p>رقم الهويه او رقم الاقامه: <?php echo $user['ssn']; ?></p>
         <p>الجنسيه:<?php echo $user['nationality']; ?></p>
