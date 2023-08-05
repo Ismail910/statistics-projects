@@ -30,14 +30,22 @@ class UsersController extends Controller
             $name = $_POST['name'];
             $ssn = $_POST['ssn'];
             $nationality = $_POST['nationality'];
-           
             $company = $_POST['company'];
             $start_date = $_POST['start_date'];
             $end_date = $_POST['end_date'];
             $religion = $_POST['religion'];
             $phone_number = $_POST['phone_number'];
             $administrator_phone = $_POST['administrator_phone'];
-            $this->conn = new Users();
+            
+            if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === UPLOAD_ERR_OK) {
+                $file_tmp = $_FILES['profile_picture']['tmp_name'];
+                $profile_picture = file_get_contents($file_tmp); // Read the binary data of the image
+            }
+
+
+    
+
+
             $dataInsert = array(
                 "name" => $name,
                 "ssn" => $ssn,
@@ -48,8 +56,14 @@ class UsersController extends Controller
                 "religion" => $religion,
                 "phone_number" => $phone_number,
                 "administrator_phone" => $administrator_phone,
-
             );
+
+            if (isset($profile_picture)) {
+                $dataInsert['profile_picture'] = $profile_picture;
+            }
+
+
+            $this->conn = new Users();
 
             if ($this->conn->insertUsers($dataInsert)) {
                 $data['success'] = "Data Added Successfully";
@@ -89,6 +103,12 @@ class UsersController extends Controller
             $id = $_POST['id'];
 
             $this->conn = new Users();
+
+            if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === UPLOAD_ERR_OK) {
+                $file_tmp = $_FILES['profile_picture']['tmp_name'];
+                $profile_picture = file_get_contents($file_tmp); // Read the binary data of the image
+            }
+
             $dataInsert = array(
                 "name" => $name,
                 "nationality" => $nationality,
@@ -102,6 +122,9 @@ class UsersController extends Controller
 
             );
 
+            if (isset($profile_picture)) {
+                $dataInsert['profile_picture'] = $profile_picture;
+            }
 
 
             if ($this->conn->updateUser($id, $dataInsert)) {
