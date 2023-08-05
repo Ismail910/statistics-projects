@@ -55,33 +55,46 @@
                 <h3 class="alert alert-danger text-center"><?php echo $error; ?></h3>
             <?php endif; ?>
             <div class="row">
-                <?php foreach($users as $row): ?>
+    <?php foreach($users as $row): ?>
+        <?php
+            // Calculate the difference in days between the end date and the current date
+            $endDate = strtotime($row['end_date']);
+            $currentDate = time();
+            $difference = ($endDate - $currentDate) / (60 * 60 * 24); // Convert seconds to days
+        ?>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+            <?php if (!empty($row['profile_picture'])): ?>
                     <?php
-                        // Calculate the difference in days between the end date and the current date
-                        $endDate = strtotime($row['end_date']);
-                        $currentDate = time();
-                        $difference = ($endDate - $currentDate) / (60 * 60 * 24); // Convert seconds to days
+                        // Convert the binary data to base64 encoding for embedding in the HTML
+                        $base64Image = base64_encode($row['profile_picture']);
+                        $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
                     ?>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><?php echo $row['name']; ?></h5>
-                                <p class="card-text">الرتبه  : <?php echo $row['position']; ?></p>
-                                <p class="card-text">الجناح / القسم :<?php echo $row['department']; ?></p>
-                                <p class="card-text">الهاتف : <?php echo $row['Job_ID']; ?></p>
-                                <p class="card-text">تاريخ البدء: <?php echo $row['start_date']; ?></p>
-                                <p class="card-text" <?php if ($difference <= 7 && $difference >= 0): ?> style="background-color: red;" <?php elseif ($difference <= 14 && $difference >= 0): ?> style="background-color: yellow;" <?php endif; ?>>
-                                    تاريخ الانتهاء: <?php echo $row['end_date']; ?>
-                                </p>
-                                <p class="card-text">الحاله: <?php echo $row['status']; ?></p>
-                                <p class="card-text">سبب الطلب: <?php echo $row['reasonOFRequest']; ?></p>
-                                <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info">تعديل</a>
-                                <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger">حذف</a>
-                            </div>
-                        </div>
+                    <div class="w-100 d-flex justify-content-center mt-3">
+                    <img src="<?php echo $imageSrc; ?>" class="" alt="<?php echo $row['name']; ?> Profile Picture" width="100px" height="100px">
                     </div>
-                <?php endforeach; ?>
-            </div>     
+                <?php else: ?>
+                    <!-- You can display a default profile picture if no image is available -->
+                    <img src="<?php echo BURL.'assets/images/search.png'; ?>" width="100px" height="100px" alt="Default Photo">
+                <?php endif; ?>
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                    <p class="card-text">الرتبه  : <?php echo $row['position']; ?></p>
+                    <p class="card-text">الجناح / القسم :<?php echo $row['department']; ?></p>
+                    <p class="card-text">الهاتف : <?php echo $row['Job_ID']; ?></p>
+                    <p class="card-text">تاريخ البدء: <?php echo $row['start_date']; ?></p>
+                    <p class="card-text" <?php if ($difference <= 7 && $difference >= 0): ?> style="background-color: red;" <?php elseif ($difference <= 14 && $difference >= 0): ?> style="background-color: yellow;" <?php endif; ?>>
+                        تاريخ الانتهاء: <?php echo $row['end_date']; ?>
+                    </p>
+                    <p class="card-text">الحاله: <?php echo $row['status']; ?></p>
+                    <p class="card-text">سبب الطلب: <?php echo $row['reasonOFRequest']; ?></p>
+                    <a href="<?php url('/users/edit/'.$row['id']) ?>" class="btn btn-info">تعديل</a>
+                    <a href="<?php url('/users/delete/'.$row['id']) ?>" class="btn btn-danger">حذف</a>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
            </div>
         </div>
     </div>

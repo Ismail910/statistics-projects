@@ -23,6 +23,9 @@ background-color:lightgray;
   border: 5px solid #fff;
   border-radius: 50%;
 }
+.imging{
+  border-radius: 50%;
+}
 </style>
 
 <?php $i=1; ?>
@@ -41,9 +44,20 @@ background-color:lightgray;
       
     <div class="card testimonial-card mt-2 mb-3">
       <div class="card-up "></div>
-      <div class="avatar mx-auto white">
-        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg" class="rounded-circle img-fluid"
-          alt="woman avatar">
+      <div class="mx-auto white">
+      <?php if (!empty($user['profile_picture'])): ?>
+                    <?php
+                        // Convert the binary data to base64 encoding for embedding in the HTML
+                        $base64Image = base64_encode($user['profile_picture']);
+                        $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
+                    ?>
+                    <div class="w-100 d-flex justify-content-center mt-3">
+                    <img src="<?php echo $imageSrc; ?>" alt="<?php echo $user['name']; ?> Profile Picture" width="200px" height="200px" class="imging">
+                    </div>
+                <?php else: ?>
+                    <!-- You can display a default profile picture if no image is available -->
+                    <img src="<?php echo BURL.'assets/images/search.png'; ?>" width="200px" height="200px" alt="Default Photo" class="imging">
+                <?php endif; ?>
       </div>
       <div class="card-body ">
         <p class="card-title fw-bold fs-1 text-center" style="color:darkblue"> الاسم: <?php  echo $user['name']; ?> </p>
@@ -59,7 +73,7 @@ background-color:lightgray;
         <p>رقم الهاتف:<?php echo $user['phone_number']; ?></p>
         <p>هاتف المسؤول :<?php echo $user['administrator_phone']; ?></p>
         <p> تاريخ البدء :<?php echo $user['start_date']; ?></p>
-        <p <?php if ($difference <= 14 && $difference >= 0): ?>style="color:red" <?php elseif ($difference <= 30 && $difference >= 15): ?>style="color: yellow;" <?php elseif ($difference < 0): ?>style="color:black; " <?php endif; ?>>تاريخ الانتهاء:
+        <p <?php if ($difference <= 14 && $difference >= 0): ?>style="color:red ; " <?php elseif ($difference <= 30 && $difference >= 15): ?>style="color:#ffd700; " <?php elseif ($difference < 0): ?>style="color:black; " <?php endif; ?>>تاريخ الانتهاء:
     <?php echo $user['end_date']; ?>
 </p>
 </div>

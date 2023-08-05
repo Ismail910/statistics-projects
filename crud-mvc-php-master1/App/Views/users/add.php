@@ -27,7 +27,7 @@
                 </div>
             <?php endif; ?>
 
-            <form class="p-4 border rounded-lg shadow-sm" method="POST" action="<?php url('users/store'); ?>">
+            <form class="p-4 border rounded-lg shadow-sm" method="POST" action="<?php url('users/store'); ?>" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">الاسم</label>
                     <input type="text" required name="name" class="form-control" id="name">
@@ -71,6 +71,10 @@
                 <div class="form-group">
                     <label for="reasonOFRequest"> سبب الطلب</label>
                     <input type="text" required class="form-control" name="reasonOFRequest" id="reasonOFRequest">
+                </div>
+                <div class="form-group">
+                     <label for="profile_picture">صورة الملف الشخصي</label>
+                     <input type="file"  name="profile_picture" class="form-control" id="profile_picture">
                 </div>
 
                 <div class="text-center mt-3">

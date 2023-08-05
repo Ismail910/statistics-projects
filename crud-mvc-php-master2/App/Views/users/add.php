@@ -27,7 +27,7 @@
             <?php endif; ?>
 
 
-            <form class="p-5 border mb-5" method="POST" action="<?php url('users/store'); ?>">
+            <form class="p-5 border mb-5" method="POST" action="<?php url('users/store'); ?>" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label for="name">الاسم</label>
@@ -74,6 +74,12 @@
                     <label for="end_date">تاريخ الانتهاء  </label>
                     <input type="date" required class="form-control" name="end_date" id="end_date">
                 </div>
+
+                <div class="form-group">
+                     <label for="profile_picture">صورة الملف الشخصي</label>
+                     <input type="file" required name="profile_picture" class="form-control" id="profile_picture">
+                </div>
+
                 <div class="text-center mt-3">
                 <button type="submit" name="submit" class="btn btn-primary w-50">حفظ</button>
                 </div>

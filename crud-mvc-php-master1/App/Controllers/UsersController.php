@@ -29,8 +29,8 @@ class UsersController extends Controller
 
     public function store()
     {
-        if(isset($_POST['submit']))
-        {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // ... (Existing code to handle form data)
             $name = $_POST['name'];
             $position = $_POST['position'];
             $Job_ID = $_POST['Job_ID'];
@@ -39,34 +39,43 @@ class UsersController extends Controller
             $end_date = $_POST['end_date'];
             $status = $_POST['status'];   
             $reasonOFRequest = $_POST['reasonOFRequest'];    
-
-            $this->conn = new Users();
-            $dataInsert = Array ( "name" => $name ,
-                            "position" => $position ,
-                            "Job_ID" => $Job_ID ,
-                            "department" => $department , 
-                            "start_date" => $start_date , 
-                            "end_date" => $end_date , 
-                            "status" => $status , 
-                            "reasonOFRequest" => $reasonOFRequest , 
-                            );
-
-            if($this->conn->insertUsers($dataInsert))
-            {
-                $data['success'] = "Data Added Successfully";
-                return $this->view('users/add',$data);
+            // Handle the file upload
+            if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === UPLOAD_ERR_OK) {
+                $file_tmp = $_FILES['profile_picture']['tmp_name'];
+                $profile_picture = file_get_contents($file_tmp); // Read the binary data of the image
             }
-            else 
-            {
-                $data['error'] = "Error";
-                return $this->view('users/add',$data);
-            }
+                // Prepare the data to be inserted into the database
+                $dataInsert = [
+                    "name" => $name,
+                    "position" => $position,
+                    "Job_ID" => $Job_ID,
+                    "department" => $department, 
+                    "start_date" => $start_date, 
+                    "end_date" => $end_date, 
+                    "status" => $status, 
+                    "reasonOFRequest" => $reasonOFRequest
+                ];
+                if (isset($profile_picture)) {
+                    $dataInsert['profile_picture'] = $profile_picture;
+                }
+        
+    
+                $this->conn = new Users();
+    
+                if ($this->conn->insertUsers($dataInsert)) {
+                    $data['success'] = "Data Added Successfully";
+                    return $this->view('users/add', $data);
+                } else {
+                    $data['error'] = "Error";
+                    return $this->view('users/add', $data);
+                }
+            
         }
-
+    
         $data['users'] = $this->conn->getAllUsers();
-        return $this->view('users/index',$data);
+        return $this->view('users/index', $data);
     }
-
+    
 
 
 
@@ -79,8 +88,8 @@ class UsersController extends Controller
 
     public function update()
     {
-        if(isset($_POST['submit']))
-        {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
             $name = $_POST['name'];
             $position = $_POST['position'];
             $Job_ID = $_POST['Job_ID'];
@@ -89,37 +98,47 @@ class UsersController extends Controller
             $end_date = $_POST['end_date'];
             $status = $_POST['status'];
             $reasonOFRequest = $_POST['reasonOFRequest'];
-            $id = $_POST['id'];
-
+    
             $this->conn = new Users();
-            $dataInsert = Array ( "name" => $name ,
-                            "position" => $position ,
-                            "Job_ID" => $Job_ID ,
-                            "department" => $department ,
-                            "start_date" => $start_date ,
-                            "end_date" => $end_date ,
-                            "status" => $status ,
-                            "reasonOFRequest" => $reasonOFRequest ,
-                            );
-            
-            
-
-            if($this->conn->updateUser($id,$dataInsert))
-            {
+    
+            // Handle the file upload (if a new photo is provided)
+            if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === UPLOAD_ERR_OK) {
+                $file_tmp = $_FILES['profile_picture']['tmp_name'];
+                $profile_picture = file_get_contents($file_tmp); // Read the binary data of the image
+            }
+    
+            // Prepare the data to be updated in the database
+            $dataInsert = [
+                "name" => $name,
+                "position" => $position,
+                "Job_ID" => $Job_ID,
+                "department" => $department, 
+                "start_date" => $start_date, 
+                "end_date" => $end_date, 
+                "status" => $status, 
+                "reasonOFRequest" => $reasonOFRequest,
+            ];
+    
+            // If a new photo is provided, add it to the data array
+            if (isset($profile_picture)) {
+                $dataInsert['profile_picture'] = $profile_picture;
+            }
+    
+            if ($this->conn->updateUser($id, $dataInsert)) {
                 $data['success'] = "Updated Successfully";
                 $data['row'] = $this->conn->getUser($id);
                 $data['users'] = $this->conn->getAllUsers();
-                return $this->view('users/index',$data);
-            }
-            else 
-            {
+                return $this->view('users/index', $data);
+            } else {
                 $data['error'] = "Error";
                 $data['row'] = $this->conn->getUser($id)[0];
-                return $this->view('users/edit',$data);
+                return $this->view('users/edit', $data);
             }
         }
+    
         redirect('home/index');
     }
+    
 
 
 
