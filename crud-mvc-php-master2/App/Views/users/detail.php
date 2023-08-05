@@ -56,7 +56,7 @@ background-color:lightgray;
                     </div>
                 <?php else: ?>
                     <!-- You can display a default profile picture if no image is available -->
-                    <img src="<?php echo BURL.'assets/images/search.png'; ?>" width="200px" height="200px" alt="Default Photo" class="imging">
+                    <img src="<?php echo BURL.'assets/images/user.png'; ?>" width="200px" height="200px" alt="Default Photo" class="imging">
                 <?php endif; ?>
       </div>
       <div class="card-body ">

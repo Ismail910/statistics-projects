@@ -75,7 +75,7 @@
                     </div>
                 <?php else: ?>
                     <!-- You can display a default profile picture if no image is available -->
-                    <img src="<?php echo BURL.'assets/images/search.png'; ?>" width="100px" height="100px" alt="Default Photo">
+                    <img src="<?php echo BURL.'assets/images/user.png'; ?>" width="100px" height="100px" alt="Default Photo">
                 <?php endif; ?>
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $row['name']; ?></h5>

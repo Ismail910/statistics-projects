@@ -103,7 +103,6 @@
     </div>
 </div>
 
-<p></p>
 
 
 <?php include(VIEWS . 'inc' . DS . 'footer.php'); ?>
