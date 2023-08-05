@@ -36,10 +36,10 @@ background-color:lightgray;
 
 
 
-<div class="container">
-  <section class="mx-auto my-5" style="max-width: 60rem;">
+<div class="container ">
+  <section class="mx-auto my-5 " style="max-width: 60rem; ">
       
-    <div class="card testimonial-card mt-2 mb-3">
+    <div class="card testimonial-card mt-2 mb-3 bg-info">
       <div class="card-up "></div>
       <div class="avatar mx-auto white">
         <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg" class="rounded-circle img-fluid"
@@ -59,7 +59,7 @@ background-color:lightgray;
         <p>رقم الهاتف:<?php echo $user['phone_number']; ?></p>
         <p>هاتف المسؤول :<?php echo $user['administrator_phone']; ?></p>
         <p> تاريخ البدء :<?php echo $user['start_date']; ?></p>
-        <p <?php if ($difference <= 14 && $difference >= 0): ?>style="color:red" <?php elseif ($difference <= 30 && $difference >= 15): ?>style="color: yellow;" <?php elseif ($difference < 0): ?>style="color:black; " <?php endif; ?>>تاريخ الانتهاء:
+        <p <?php if ($difference <= 14 && $difference >= 0): ?>style="color:red" <?php elseif ($difference <= 30 && $difference >= 15): ?>style="color: yellow;  " <?php elseif ($difference < 0): ?>style="color:black; " <?php endif; ?>>تاريخ الانتهاء:
     <?php echo $user['end_date']; ?>
 </p>
 </div>
