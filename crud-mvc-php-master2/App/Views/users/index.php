@@ -40,8 +40,24 @@
 </style>
 <!-- Search form -->
 <div class="container">
+<div class="row d-flex justify-content-center">
+<div class="search-container col-5">
+    <form action="<?php url('users/search'); ?>" method="POST" class="search-form">
+        <input type="text" name="query" placeholder="ابحث ....">
+        <button type="submit"><img src="<?php echo BURL.'assets/images/search.png'; ?>" width="30px" height="30px" alt="Search Icon"></button>
+    </form>
+</div>
+
+<div class="search-container col-5">
+    <form action="<?php url('users/searchByCountry'); ?>" method="POST" class="search-form">
+        <input type="text" name="query" placeholder=" ابحث بالدولة">
+        <button type="submit"><img src="<?php echo BURL.'assets/images/search.png'; ?>" width="30px" height="30px" alt="Search Icon"></button>
+    </form>
+</div>
+
+</div>
     
-        <h1 class="text-center  my-5 py-3">عرض البيانات الشخص  </h1>
+<h1 class="text-center  my-5 py-3">عرض البيانات الشخص  </h1>
 
 <div class="container">
     <div class="row">
